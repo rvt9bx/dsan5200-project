@@ -1,0 +1,25 @@
+project:
+  type: website
+
+website:
+  title: "Billboard Music: Flash or Burn Analysis"
+  navbar: false
+  sidebar: false
+
+format:
+  closeread-html:
+    toc: false
+    number-sections: false
+    smooth-scroll: true
+    theme:
+      - cosmo
+      - css/custom.scss
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+          <script src="js/pathways.js" defer></script>
+ 
+filters:
+  - closeread
