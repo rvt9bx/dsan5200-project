@@ -9,9 +9,9 @@ format: closeread-html
      HERO
 ══════════════════════════════════════════ -->
 <div class="hero">
-  <span class="kicker">Billboard Hot 100 · 2015–2024</span>
+  <span class="kicker">Billboard Hot 100 · 2016–2025</span>
   <h1>Flash<br>or Burn</h1>
   <p class="dek">Some songs explode to #1 and vanish within weeks. Others quietly grind up the charts for months. Ten years of data reveal two completely different ways to have a hit — and the gap between them is growing.</p>
-  <p class="byline">Your Name &nbsp;·&nbsp; April 2026</p>
+  <p class="byline">Eleanor Byrd &nbsp;·&nbsp; April 2026</p>
 </div>
 ```

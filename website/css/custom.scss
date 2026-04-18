@@ -6,7 +6,7 @@ $headings-font-family: 'Playfair Display', serif;
 $font-family-base: 'Source Sans 3', sans-serif;
 $font-size-base: 1.1rem;
 $line-height-base: 1.8;
-$link-color: #c0392b;
+$link-color: #320b8d;
 $link-decoration: none;
 $link-hover-decoration: underline;
 
@@ -35,7 +35,7 @@ main.content { padding: 0; margin: 0; }
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #c0392b;
+  color: #320b8d;
   margin-bottom: 1.25rem;
   display: block;
 }
@@ -196,9 +196,9 @@ main.content { padding: 0; margin: 0; }
   border-top: 3px solid;
 }
 
-#pathway-a .pathway-header { border-color: #c0392b; }
-#pathway-b .pathway-header { border-color: #2471a3; }
-#pathway-c .pathway-header { border-color: #1e8449; }
+#pathway-a .pathway-header { border-color: #320b8d; }
+#pathway-b .pathway-header { border-color: #06395b; }
+#pathway-c .pathway-header { border-color: #4f0335; }
 
 .pathway-header .artist-label {
   font-size: 0.75rem;
@@ -233,7 +233,7 @@ main.content { padding: 0; margin: 0; }
 .narrative-block {
   background: transparent;
   border: none;
-  border-left: 2px solid #c0392b;
+  border-left: 2px solid #320b8d;
   padding: 0.5rem 0 0.5rem 1.25rem;
   max-width: 340px;
   color: #1a1a1a;
@@ -257,7 +257,7 @@ main.content { padding: 0; margin: 0; }
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #c0392b;
+  color: #320b8d;
   cursor: pointer;
   background: none;
   border: none;
