@@ -24,6 +24,7 @@ format:
 ![](../../charts/num_songs_per_artist.svg)
 ![](../../charts/num_weeks_per_song.svg)
 
+::: {.center-chart}
 ```{python}
 # imports 
 import altair as alt
@@ -43,6 +44,7 @@ df_song_rank = (
     )
 )
 default_song = df.sort_values("weeks_on_chart", ascending=False).iloc[0]
+df_filled = pd.read_csv("../data/filled_hot100_history.csv", low_memory=False)
 
 # altair settings 
 alt.data_transformers.disable_max_rows()
@@ -53,10 +55,9 @@ color_scale = alt.Scale(
     domain=[1, 50, 100],
     range=['#4f0335', '#882a9d', '#e4d1ee'],
 )
-alt.themes.register(
-    "custom",
-    lambda: {
-        "config": {
+@alt.theme.register('custom', enable=True)
+def custom_theme():
+    return alt.theme.ThemeConfig({
             "background": '#f5f0e8',
             "view": {
                 "fill": '#f5f0e8',
@@ -67,11 +68,11 @@ alt.themes.register(
                 "diverging": ['#4f0335', '#320b8d', '#06395b'],
                 "heatmap": ['#e4d1ee', '#882a9d'],
             },
-            "mark": {"color": '#320b8d',},
+            "bar": {"color": '#320b8d'},
+            "line": {"color": '#4f0335'},
+            "point": {"color": '#4f0335'},
         }
-    },
-)
-alt.theme.enable("custom")
+    )
 
 # scatter selection object 
 selection = alt.selection_point(fields=["title", "artist"], empty=True)
@@ -85,8 +86,20 @@ scatter = alt.Chart(df_song_rank).mark_circle(size=60).encode(
         alt.Color("debut_rank:Q", scale=color_scale, legend=alt.Legend(title="Debut Rank", direction='horizontal', orient='bottom', gradientLength=800, tickCount=3)),
         alt.value("lightgray"),
     ),
-    tooltip=["title", "artist", "weeks_in_data", "peak_position", "debut_rank"],
-).add_params(selection).properties(width=800, height=400, title="Charting Time vs Peak")
+    tooltip=[alt.Tooltip('title', title='Song'),
+             alt.Tooltip('artist', title='Artist'),
+             alt.Tooltip('weeks_in_data', title='Number of Weeks on Chart'),
+             alt.Tooltip('peak_position', title='Peak Position'),
+             alt.Tooltip('debut_rank', title='Debut Rank')],
+).add_params(selection).properties(width=800, height=400, title=alt.Title(
+       "Charting Time vs Peak",
+       anchor='start',
+       frame='group',
+       orient='top',
+       fontSize=16, 
+       fontWeight='bold',
+       offset=20
+   ))
 
 # decay curve selection object
 curve_selection = alt.selection_point(fields=["title", "artist"], empty=False)
@@ -95,15 +108,25 @@ curve_selection = alt.selection_point(fields=["title", "artist"], empty=False)
 scatter = scatter.add_params(curve_selection)
 
 # decay curve 
-curve = alt.Chart(df).mark_line(point=True).encode(
+curve = alt.Chart(df_filled).mark_line(point=True).encode(
     x=alt.X("chart_date:T", title="Week"),
     y=alt.Y("rank:Q", title="Chart Position", scale=alt.Scale(reverse=True)),
-    color=alt.Color("title:N", legend=None),
-    tooltip=["title", "artist", "chart_date", "rank"],
+    color=alt.value('#4f0335'),
+    tooltip=[alt.Tooltip('title', title='Song'),
+             alt.Tooltip('artist', title='Artist'), 
+             alt.Tooltip('chart_date:T', format='%b %d, %Y', title='Date'),
+             alt.Tooltip('rank', title='Rank')],
 ).transform_filter(curve_selection).properties(width=800, height=300)
+title = alt.Chart(df).mark_text(
+    align='left',
+    fontSize=16,
+    fontWeight='bold'
+).encode(
+    text=alt.Text('title:N', aggregate='max')
+).transform_filter(curve_selection)
 
 
-combined = (scatter & curve).resolve_scale(color="independent")
+combined = (scatter & title & curve).resolve_scale(color="independent")
 combined
 ```
 
