@@ -1,6 +1,10 @@
 ---
 title: ""
-format: closeread-html
+format: 
+    closeread-html:
+        html:
+            page-layout: full
+            self-contained: true
 ---
 
 
@@ -15,3 +19,93 @@ format: closeread-html
   <p class="byline">Eleanor Byrd &nbsp;·&nbsp; April 2026</p>
 </div>
 ```
+
+
+![](../../charts/num_songs_per_artist.svg)
+![](../../charts/num_weeks_per_song.svg)
+
+```{python}
+# imports 
+import altair as alt
+import pandas as pd
+
+# data 
+df = pd.read_csv("../data/clean_hot100_history.csv", low_memory=False)
+df_song_rank = df.copy()
+df_song_rank = (
+    df_song_rank
+    .sort_values('chart_date')
+    .groupby(['title', 'artist'], as_index=False)
+    .agg(
+        weeks_in_data=('chart_date', 'count'),
+        peak_position=('rank', 'min'),
+        debut_rank=('rank', 'first')
+    )
+)
+default_song = df.sort_values("weeks_on_chart", ascending=False).iloc[0]
+
+# altair settings 
+alt.data_transformers.disable_max_rows()
+alt.renderers.enable('default', embed_options={'renderer': 'canvas'})
+
+# custom color scale 
+color_scale = alt.Scale(
+    domain=[1, 50, 100],
+    range=['#4f0335', '#882a9d', '#e4d1ee'],
+)
+alt.themes.register(
+    "custom",
+    lambda: {
+        "config": {
+            "background": '#f5f0e8',
+            "view": {
+                "fill": '#f5f0e8',
+                "stroke": "transparent",
+            },
+            "range": {
+                "category": ['#4f0335', '#320b8d', '#06395b', '#6b2d0f', '#1a5c3a','#882a9d','#bd6220','#179191','#6b46c8'],
+                "diverging": ['#4f0335', '#320b8d', '#06395b'],
+                "heatmap": ['#e4d1ee', '#882a9d'],
+            },
+            "mark": {"color": '#320b8d',},
+        }
+    },
+)
+alt.theme.enable("custom")
+
+# scatter selection object 
+selection = alt.selection_point(fields=["title", "artist"], empty=True)
+
+# scatter plot
+scatter = alt.Chart(df_song_rank).mark_circle(size=60).encode(
+    x=alt.X("weeks_in_data:Q", title="Number of Weeks"),
+    y=alt.Y("peak_position:Q", title="Peak Position", scale=alt.Scale(reverse=True)),
+    color=alt.condition(
+        selection,
+        alt.Color("debut_rank:Q", scale=color_scale, legend=alt.Legend(title="Debut Rank", direction='horizontal', orient='bottom', gradientLength=800, tickCount=3)),
+        alt.value("lightgray"),
+    ),
+    tooltip=["title", "artist", "weeks_in_data", "peak_position", "debut_rank"],
+).add_params(selection).properties(width=800, height=400, title="Charting Time vs Peak")
+
+# decay curve selection object
+curve_selection = alt.selection_point(fields=["title", "artist"], empty=False)
+
+# add to scatter
+scatter = scatter.add_params(curve_selection)
+
+# decay curve 
+curve = alt.Chart(df).mark_line(point=True).encode(
+    x=alt.X("chart_date:T", title="Week"),
+    y=alt.Y("rank:Q", title="Chart Position", scale=alt.Scale(reverse=True)),
+    color=alt.Color("title:N", legend=None),
+    tooltip=["title", "artist", "chart_date", "rank"],
+).transform_filter(curve_selection).properties(width=800, height=300)
+
+
+combined = (scatter & curve).resolve_scale(color="independent")
+combined
+```
+
+
+More text down here
