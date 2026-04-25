@@ -24,7 +24,6 @@ format:
 ![](../../charts/num_songs_per_artist.svg)
 ![](../../charts/num_weeks_per_song.svg)
 
-::: {.center-chart}
 ```{python}
 # imports 
 import altair as alt
@@ -131,4 +130,46 @@ combined
 ```
 
 
-More text down here
+More text down here 
+
+<iframe src="../../charts/rise_vs_decay.html" width=800 height=600 style="border:none"></iframe>
+
+Add more text???
+
+
+![](../../charts/timeline_taylor_swift.svg)
+
+<iframe src="../../charts/heatmap_taylor_swift.html" width=800 height=600 style="border:none"></iframe>
+
+<iframe src="../../charts/violin_taylor_swift.html" width=1000 height=500 style="border:none"></iframe>
+
+
+![](../../charts/timeline_bad_bunny.svg)
+
+<iframe src="../../charts/heatmap_bad_bunny.html" width=800 height=600 style="border:none"></iframe>
+
+<iframe src="../../charts/violin_bad_bunny.html" width=1000 height=500 style="border:none"></iframe>
+
+
+
+![](../../charts/timeline_shawn_mendes.svg)
+
+<iframe src="../../charts/heatmap_shawn_mendes.html" width=800 height=600 style="border:none"></iframe>
+
+<iframe src="../../charts/violin_shawn_mendes.html" width=1000 height=500 style="border:none"></iframe>
+
+
+
+![](../../charts/timeline_luke_combs.svg)
+
+<iframe src="../../charts/heatmap_luke_combs.html" width=800 height=600 style="border:none"></iframe>
+
+<iframe src="../../charts/violin_luke_combs.html" width=1000 height=500 style="border:none"></iframe>
+
+
+
+![](../../charts/timeline_marshmello.svg)
+
+<iframe src="../../charts/heatmap_marshmello.html" width=800 height=600 style="border:none"></iframe>
+
+<iframe src="../../charts/violin_marshmello.html" width=1000 height=500 style="border:none"></iframe>
