@@ -15,15 +15,40 @@ format:
 <div class="hero">
   <span class="kicker">Billboard Hot 100 · 2016–2025</span>
   <h1>Flash<br>or Burn</h1>
-  <p class="dek">Some songs explode to #1 and vanish within weeks. Others quietly grind up the charts for months. Ten years of data reveal two completely different ways to have a hit — and the gap between them is growing.</p>
-  <p class="byline">Eleanor Byrd &nbsp;·&nbsp; April 2026</p>
+  <p class="dek">Can we measure the virality or endurability of songs with the Billboard Hot 100 Charts? Dive in to explore different artists and the music landscape of the past decade.</p>
+  <p class="byline">Eleanor Byrd &nbsp;·&nbsp; Spring 2026</p>
 </div>
 ```
 
+Add some sort of image or icon music related 
 
+::: {.prose}
+Virality is defined as the concept of being quickly and widely spread or popularized, especially by means of social media [@merriam_webster_viral]. With TikTok entering the scene around 2018 as a short-form video platform and gaining major widespread popularity, the music industry experienced a massive shift. Tiny snippets of songs with catchy lyrics or fun beats, can be shared in a single video and reach millions of fans. This in turn spikes listening and streaming of the song. It has truly changed music marketing. 
+
+## What is the Billboard Hot 100? 
+
+For some background, the Billboard Hot 100 is a music popularity ranking that originated in its current form in 1958. Published weekly, it is a list of the most popular singles, originally based on radio airplay and the sales of the song, but now incorporates streaming data as well. If you hear that a song is "Number 1," that means that it has reached the peak ranking of #1 on the Billboard Hot 100. This article examines the Billboard Hot 100 data from January 2016 to December 2025, for a total of 522 weeks, 5869 songs, and ____ artists, scraped using billboard.py. Below, we can see a visualization of the artists that had the most songs chart during this time period. 
+:::
+
+::: {.chart-wrap}
 ![](../../charts/num_songs_per_artist.svg)
-![](../../charts/num_weeks_per_song.svg)
+[Your caption text here]{.caption}
+:::
 
+::: {.prose}
+If a song remains popular, it can chart for many weeks, moving up and down the rankings. It can even drop off the chart and reappear if there is another spike in popularity. Below we have a vizualization of the longest charting songs over the past decade. These songs are examples of truly enduring hits that might not be the highest ranking song for all of its weeks on the chart, but they have consistent enough streams and sales in order to keep them in the top 100. 
+:::
+
+::: {.chart-wrap}
+![](../../charts/num_weeks_per_song.svg)
+[Diagram of number of weeks on the Billboard Hot 100 chart for the 20 most charting songs. The number of weeks represents the total number of weeks on the chart from 2016-2025, not necessarity consecutive weeks.]{.caption}
+:::
+
+::: {.prose}
+In order to capture the true lifecycle of a song's experience on the Billboard Charts, however, we need to dive into the rankings it achieves. The following chart depicts every single song that charted between 2016 and 2025, distributed vertically by their peak ranking and horizontally by the number of weeks they charted. This number of weeks value is based only on the charts gathered between January 2016 and December 2025, and does not include the number of weeks a song may have been on the chart either before or after those dates. This plot shows that a majority of songs chart for fewer weeks, with the songs from the previous bar graph as outliers along the top right edge of the grid. The number of weeks a song charts for ranges from 1 to 112, but fifty percent of songs chart for only 3 weeks or less. There is a clear trend in this scatter plot that shows as songs are on the chart for more weeks, their peak rank generally increases. In fact, this relationship has a positive correlation of about 0.6. The peak rank of a song is also positively correlated with it's debut rank: the higher a song debut's on the Hot 100, the higher it's peak ranking. Click on any point in the graph below to view its ranking over time. 
+:::
+
+::: {.chart-wrap}
 ```{python}
 # imports 
 import altair as alt
@@ -42,7 +67,7 @@ df_song_rank = (
         debut_rank=('rank', 'first')
     )
 )
-default_song = df.sort_values("weeks_on_chart", ascending=False).iloc[0]
+# default_song = df.sort_values("weeks_on_chart", ascending=False).iloc[0]
 df_filled = pd.read_csv("../data/filled_hot100_history.csv", low_memory=False)
 
 # altair settings 
@@ -57,6 +82,7 @@ color_scale = alt.Scale(
 @alt.theme.register('custom', enable=True)
 def custom_theme():
     return alt.theme.ThemeConfig({
+            "font": "Playfair Display, serif",
             "background": '#f5f0e8',
             "view": {
                 "fill": '#f5f0e8',
@@ -70,6 +96,7 @@ def custom_theme():
             "bar": {"color": '#320b8d'},
             "line": {"color": '#4f0335'},
             "point": {"color": '#4f0335'},
+            
         }
     )
 
@@ -82,7 +109,7 @@ scatter = alt.Chart(df_song_rank).mark_circle(size=60).encode(
     y=alt.Y("peak_position:Q", title="Peak Position", scale=alt.Scale(reverse=True)),
     color=alt.condition(
         selection,
-        alt.Color("debut_rank:Q", scale=color_scale, legend=alt.Legend(title="Debut Rank", direction='horizontal', orient='bottom', gradientLength=800, tickCount=3)),
+        alt.Color("debut_rank:Q", scale=color_scale, legend=alt.Legend(title="Debut Rank", direction='horizontal', orient='bottom', gradientLength=700, tickCount=3)),
         alt.value("lightgray"),
     ),
     tooltip=[alt.Tooltip('title', title='Song'),
@@ -90,7 +117,7 @@ scatter = alt.Chart(df_song_rank).mark_circle(size=60).encode(
              alt.Tooltip('weeks_in_data', title='Number of Weeks on Chart'),
              alt.Tooltip('peak_position', title='Peak Position'),
              alt.Tooltip('debut_rank', title='Debut Rank')],
-).add_params(selection).properties(width=800, height=400, title=alt.Title(
+).add_params(selection).properties(width=700, height=400, title=alt.Title(
        "Charting Time vs Peak",
        anchor='start',
        frame='group',
@@ -115,7 +142,7 @@ curve = alt.Chart(df_filled).mark_line(point=True).encode(
              alt.Tooltip('artist', title='Artist'), 
              alt.Tooltip('chart_date:T', format='%b %d, %Y', title='Date'),
              alt.Tooltip('rank', title='Rank')],
-).transform_filter(curve_selection).properties(width=800, height=300)
+).transform_filter(curve_selection).properties(width=700, height=300)
 title = alt.Chart(df).mark_text(
     align='left',
     fontSize=16,
@@ -125,51 +152,315 @@ title = alt.Chart(df).mark_text(
 ).transform_filter(curve_selection)
 
 
-combined = (scatter & title & curve).resolve_scale(color="independent")
+combined = (scatter & title & curve).resolve_scale(color="independent").configure(font='serif')
 combined
 ```
+[In this chart and those that follow, debut rank refers to the song's rank on the first week in appears in the collected data. If a song was released and appeared on the Billboard Hot 100 prior to 2016, that debut is unfortunately not captured.]{.caption}
+:::
+
+:::{.prose}
+Of course, the number of weeks a song charts can give us give us an initial view into if it is a viral flash or if its popularity endures, but a deeper dive looks at its rankings over time. If a song rapidly rises up the charts, it may be part of a viral trend on TikTok so more people are listening to it. If a song's rank remains relatively consistent over time or decreases very slowly, it could be a more sustained hit. See if you can fiddle with the plot above until you find a song that fits either of these categories. 
+
+## How do we capture a flash or a burn?
+
+In order to quantify a song's climb up the chart and its fall down it, I calculate rise and decay rates. Both of these metrics are calculated as the average of all weekly differences, where rise rate is positive and calcluated based on the weeks and ranks from a song's debut to its peak, and the decay rate is negative and is calculated from a song's peak to its last day on the chart. Put simply, they are slopes: the rise rate is the average number of ranks a song increases per week up until its peak, and the decay rate is the average number of ranks a song decreases per week after peaking. A rise rate of 0 means that a song debuts at its peak, and a decay rate of 0 means it ends at its peak. 
+:::
 
 
-More text down here 
+::: {.chart-wrap}
+<iframe src="../../charts/rise_vs_decay.html" width=1000 height=800 style="border:none"></iframe>
+[caption here ]{.caption}
+:::
 
-<iframe src="../../charts/rise_vs_decay.html" width=800 height=600 style="border:none"></iframe>
+::: {.prose}
+Using the chart above, we can do an initial categorization of flash vs burn songs. Songs in the bottom right quadrant are true "flash" songs that rise quickly up the rankings and then drop just as fast. For example, Taylor Swift's __Mr. Perfectly Fine (Taylor's Version)__ started at #90, peaked at #30 the next week, and then dropped back to #90 the next week and didn't reappear on the chart. Songs on the top right are viral hits, they climb quickly up the charts like the flashes, but they stick around and stay popular, with low decay rates. The bottom left corner is the opposite, they have slower rises up the charts, and their popularity isn't sustainable and they rapidly drop in the rankings before falling off the chart. Most songs are clustered in the top left corner, with both slow rise rates and slow decay rates. 
+:::
 
-Add more text???
+
+::: {#artist-picker-section  .panel-tabset}
+
+## Taylor Swift 
 
 
+```{=html}
+<div id="pathway-a" class="pathway">
+```
+
+::: {.pathway-header}
+[Archetype]{.artist-label}
+
+### Taylor Swift 
+:::
+
+Your Closeread section and content here...
+
+::: {.chart-wrap}
 ![](../../charts/timeline_taylor_swift.svg)
+:::
 
-<iframe src="../../charts/heatmap_taylor_swift.html" width=800 height=600 style="border:none"></iframe>
+::: {.chart-wrap}
+<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
+  <iframe
+    src="../../charts/heatmap_taylor_swift.html"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    ">
+  </iframe>
+</div>
+:::
 
-<iframe src="../../charts/violin_taylor_swift.html" width=1000 height=500 style="border:none"></iframe>
+::: {.chart-wrap}
+<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
+  <iframe
+    src="../../charts/violin_taylor_swift.html"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    ">
+  </iframe>
+</div>
+:::
 
+[← Pick a different artist](#artist-picker-section){.back-btn}
+```{=html}
+</div>
+```
 
+## Bad Bunny 
+
+```{=html}
+<div id="pathway-b" class="pathway">
+```
+
+::: {.pathway-header}
+[Artist 2]{.artist-label}
+
+### Bad Bunny 
+:::
+
+::: {.chart-wrap}
 ![](../../charts/timeline_bad_bunny.svg)
+:::
 
-<iframe src="../../charts/heatmap_bad_bunny.html" width=800 height=600 style="border:none"></iframe>
+::: {.chart-wrap}
+<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
+  <iframe
+    src="../../charts/heatmap_bad_bunny.html"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    ">
+  </iframe>
+</div>
+:::
 
-<iframe src="../../charts/violin_bad_bunny.html" width=1000 height=500 style="border:none"></iframe>
+::: {.chart-wrap}
+<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
+  <iframe
+    src="../../charts/violin_bad_bunny.html"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    ">
+  </iframe>
+</div>
+:::
 
 
+:::{.prose}
+Text about bad bunny here.
+:::
 
+[← Pick a different artist](#artist-picker-section){.back-btn}
+```{=html}
+</div>
+```
+
+## Shawn Mendes
+
+```{=html}
+<div id="pathway-c" class="pathway">
+```
+
+::: {.pathway-header}
+[Artist 3]{.artist-label}
+
+### Shawn Mendes
+:::
+
+::: {.chart-wrap}
 ![](../../charts/timeline_shawn_mendes.svg)
+:::
 
-<iframe src="../../charts/heatmap_shawn_mendes.html" width=800 height=600 style="border:none"></iframe>
+::: {.chart-wrap}
+<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
+  <iframe
+    src="../../charts/heatmap_shawn_mendes.html"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    ">
+  </iframe>
+</div>
+:::
 
-<iframe src="../../charts/violin_shawn_mendes.html" width=1000 height=500 style="border:none"></iframe>
+::: {.chart-wrap}
+<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
+  <iframe
+    src="../../charts/violin_shawn_mendes.html"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    ">
+  </iframe>
+</div>
+:::
 
 
+[← Pick a different artist](#artist-picker-section){.back-btn}
+```{=html}
+</div>
+```
 
+## Luke Combs
+
+```{=html}
+<div id="pathway-d" class="pathway">
+```
+
+::: {.pathway-header}
+[Artist 4]{.artist-label}
+
+### Luke Combs 
+:::
+
+::: {.chart-wrap}
 ![](../../charts/timeline_luke_combs.svg)
+:::
 
-<iframe src="../../charts/heatmap_luke_combs.html" width=800 height=600 style="border:none"></iframe>
+::: {.chart-wrap}
+<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
+  <iframe
+    src="../../charts/heatmap_luke_combs.html"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    ">
+  </iframe>
+</div>
+:::
 
-<iframe src="../../charts/violin_luke_combs.html" width=1000 height=500 style="border:none"></iframe>
+::: {.chart-wrap}
+<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
+  <iframe
+    src="../../charts/violin_luke_combs.html"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    ">
+  </iframe>
+</div>
+:::
 
 
+[← Pick a different artist](#artist-picker-section){.back-btn}
+```{=html}
+</div>
+```
 
+## Marshmello
+
+```{=html}
+<div id="pathway-e" class="pathway">
+```
+
+::: {.pathway-header}
+[Artist 5]{.artist-label}
+
+### Marshmello
+:::
+
+::: {.chart-wrap}
 ![](../../charts/timeline_marshmello.svg)
+:::
 
-<iframe src="../../charts/heatmap_marshmello.html" width=800 height=600 style="border:none"></iframe>
+::: {.chart-wrap}
+<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
+  <iframe
+    src="../../charts/heatmap_marshmello.html"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    ">
+  </iframe>
+</div>
+:::
 
-<iframe src="../../charts/violin_marshmello.html" width=1000 height=500 style="border:none"></iframe>
+::: {.chart-wrap}
+<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
+  <iframe
+    src="../../charts/violin_marshmello.html"
+    style="
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    ">
+  </iframe>
+</div>
+:::
+
+
+[← Pick a different artist](#artist-picker-section){.back-btn}
+```{=html}
+</div>
+```
+:::
+
+
+More text here 
+
+::: {.chart-wrap}
+<iframe src="../../charts/rise_decay_per_year.html" width=1000 height=800 style="border:none"></iframe>
+:::
+
+![](../../charts/waffle.svg)
