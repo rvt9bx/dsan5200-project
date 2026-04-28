@@ -173,11 +173,6 @@ main.content { padding: 0; margin: 0; }
   color: #6b2d0f;
 }
 
-.panel-tabset .nav-tabs .nav-item:nth-child(5) .nav-link.active {
-  border-bottom-color: #1a5c3a;
-  color: #1a5c3a;
-}
-
 /* hover states to match */
 .panel-tabset .nav-tabs .nav-item:nth-child(1) .nav-link:hover {
   border-bottom-color: #320b8d;
@@ -197,11 +192,6 @@ main.content { padding: 0; margin: 0; }
 .panel-tabset .nav-tabs .nav-item:nth-child(4) .nav-link:hover {
   border-bottom-color: #6b2d0f;
   color: #6b2d0f;
-}
-
-.panel-tabset .nav-tabs .nav-item:nth-child(5) .nav-link:hover {
-  border-bottom-color: #1a5c3a;
-  color: #1a5c3a;
 }
 
 /* ─── pathway sections ─── */
@@ -243,7 +233,6 @@ main.content { padding: 0; margin: 0; }
 #pathway-b .back-btn { color: #06395b; }
 #pathway-c .back-btn { color: #4f0335; }
 #pathway-d .back-btn { color: #6b2d0f; }
-#pathway-e .back-btn { color: #1a5c3a; }
 
 .back-btn:hover { text-decoration: underline; }
 
@@ -299,7 +288,7 @@ main.content { padding: 0; margin: 0; }
   font-size: 2.5rem;
   color: #1a1a1a;
   margin-bottom: 3rem;
-  border-bottom: none !important;
+  border-bottom: 1px solid #333;
   text-decoration: none !important;
 }
 
@@ -311,7 +300,6 @@ main.content { padding: 0; margin: 0; }
 }
 
 #conclusion .insight-card {
-  border-top: 1px solid #333;
   padding-top: 1.25rem;
 }
 

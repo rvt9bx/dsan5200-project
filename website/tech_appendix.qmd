@@ -1,0 +1,105 @@
+---
+title: "Technical Appendix"
+---
+
+# Technical Appendix
+
+
+::: {.prose}
+
+## Overview
+
+This project analyzes Billboard Hot 100 chart data from January 2016 through December 2025. The pipeline consists of three stages: scraping raw chart data, cleaning and normalizing artist names, and then wrangling the data and computing metrics and statistics for visualization.
+
+All code is written in Python. Visualizations are produced using Matplotlib, Seaborn, Plotly, and Altair and embedded in a Quarto website using the Closeread extension for scrollytelling.
+
+## Data Collection
+
+Chart data was collected using the [`billboard.py`](https://github.com/guoguo12/billboard-charts) Python package, which scrapes the Billboard website for historical chart data.
+
+**Script:** `billboard_scrape.py`
+
+The scraper iterates over every Saturday from January 2, 2016 to December 27, 2025 since Billboard publishes new charts on a weekly Saturday schedule. For each date, it fetches the full Hot 100 chart and writes one row per song entry to a CSV file.
+
+Each row contains the following fields:
+
+| Field | Description |
+|---|---|
+| `chart_date` | Date of the chart (Saturday) |
+| `rank` | Chart position (1–100) |
+| `title` | Song title |
+| `artist` | Artist credit as listed by Billboard |
+| `weeks_on_chart` | Cumulative weeks on chart at time of entry |
+| `peak_position` | Highest chart position the song has reached |
+| `last_position` | Chart position the previous week |
+| `is_new` | Whether this is the song's chart debut |
+
+Individual failed requests (network errors, rate limiting) are logged and skipped without interrupting the full run. The output is written to `data/hot100_history.csv`.
+
+## Data Cleaning
+
+**Notebook:** `data_cleaning.ipynb`
+
+The raw CSV required three cleaning steps before analysis: HTML tag removal, artist name splitting, and date parsing.
+
+### HTML Tag Removal
+
+Some artist name fields returned by the Billboard scraper contain HTML anchor tags. These were stripped using a regex that removes any content between `<` and `>`.
+
+### Artist Name Splitting
+
+Billboard credits collaborative songs with compound artist strings, such as `"Taylor Swift Featuring Ed Sheeran"` or `"Bad Bunny & Jhayco"`. To count a song toward each credited artist, these strings are split into a list of individual names.
+
+Splitting is complicated by band names that contain separator words. For example, `"Tones And I"` should not be split on `"And"`. A blocklist of known band names is protected before splitting by replacing them with placeholder tokens, then restoring them after. The resulting `artist_list` column contains a Python list of individual artist names per row. When computing per-artist statistics and creating visualizations, the dataframe is exploded on this column so that each artist in a collaboration gets their own row.
+
+### Output
+
+The cleaned dataframe is saved to `data/clean_hot100_history.csv` with the original columns plus `year` and `artist_list`.
+
+## Data Filling 
+
+**Part of Notebook:** `viz.ipynb`
+
+### Gap Filling
+
+Some songs have gaps in their chart history, where they fell off the Hot 100 and then re-entered. For visualizations that show a song's full timeline (such as the heatmap and timeline strip), these gaps need to be represented explicitly as missing weeks rather than simply absent rows, so that the time axis renders correctly.
+
+For each song, a complete weekly date range is generated between its first and last chart appearance using `pd.date_range` with a Saturday frequency to match Billboard's publication schedule. This full range is then left-merged with the song's actual chart data, producing null `rank` values for any weeks the song was not on the chart. Songs with no gaps are returned unchanged.
+
+The result is saved to `data/filled_hot100_history.csv`, where every song has one row per Saturday between its debut and final chart appearance, with `rank = NaN` for weeks it was absent. This allows visualizations to correctly render gaps as blank space rather than connecting non-consecutive weeks with a continuous line or bar.
+
+## Per-Song Metrics
+
+**Part of Notebook:** `viz.ipynb`
+
+Two key metrics were computed per song to categorize chart behavior: **rise rate** and **decay rate**. Both are defined as the slope of rank change over time, measured in chart positions per week.
+
+### Rise Rate
+
+Rise rate measures how quickly a song climbed to its peak. It is defined as the average positions gained per week between a song's debut and its peak week:
+
+$$\text{rise rate} = \frac{\text{debut rank} - \text{peak rank}}{\text{weeks to peak}}$$
+
+A higher rise rate means a faster climb. Songs that debut at their peak rank (i.e., peak week = 0) are assigned a rise rate of 0. Songs that only chart for one week are excluded.
+
+Because Billboard rank numbers are inverted (rank 1 is the best), subtracting peak rank from debut rank gives a positive number when the song climbed. 
+
+The resulting dataframe of one row per unique artist–song pair is saved at `data/rise_rates.csv`. It includes general song identifiers as well as columns `total_weeks`, `peak_rank`, `debut_rank`, `peak_week`, and `rise_rate`. 
+
+### Decay Rate
+
+Decay rate measures how quickly a song fell after reaching its peak. It is defined as the slope between peak rank and end rank over the number of post-peak weeks:
+
+$$\text{decay rate} = -\frac{\text{end rank} - \text{peak rank}}{\text{post-peak weeks}}$$
+
+The negation means a song that falls down the chart (increasing rank number) gets a negative decay rate. A decay rate close to 0 means a song held its position; a large negative value means a sharp drop. Songs that end the chart run at their peak (no post-peak data) are assigned a decay rate of 0. Songs that only chart for one week are excluded.
+
+The resulting dataframe of one row per unique artist–song pair is saved at `data/decay_rates.csv`. It includes general song identifiers as well as columns `total_weeks`, `peak_rank`, `debut_rank`, `end_rank`, `peak_week`, `decay_rate`, and `post_peak_length`.
+
+## Visualizations
+
+**Part of Notebook:** `viz.ipynb`
+
+Aside from the Altair linked view, which is generated directly within `index.qmd`, all code for the visualizations and summary statistics in this project are included in `viz.ipynb`. 
+
+:::

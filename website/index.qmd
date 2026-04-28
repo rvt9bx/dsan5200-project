@@ -7,6 +7,8 @@ format:
             self-contained: true
         cr-section:
             layout: "overlay-center"
+bibliography: refs.bib
+suppress-bibliography: true
 ---
 
 
@@ -18,18 +20,17 @@ format:
   <span class="kicker">Billboard Hot 100 · 2016–2025</span>
   <h1>Flash<br>or Burn</h1>
   <p class="dek">Can we measure the virality or endurability of songs with the Billboard Hot 100 Charts? Dive in to explore different artists and the music landscape of the past decade.</p>
-  <p class="byline">Eleanor Byrd &nbsp;·&nbsp; Spring 2026</p>
+  <p class="byline"><a href="https://github.com/rvt9bx" target="_blank">Eleanor Byrd</a>  &nbsp;·&nbsp; Spring 2026</p>
 </div>
 ```
-
 Add some sort of image or icon music related 
 
 ::: {.prose}
-Virality is defined as the concept of being quickly and widely spread or popularized, especially by means of social media [@merriam_webster_viral]. With TikTok entering the scene around 2018 as a short-form video platform and gaining major widespread popularity, the music industry experienced a massive shift. Tiny snippets of songs with catchy lyrics or fun beats, can be shared in a single video and reach millions of fans. This in turn spikes listening and streaming of the song. It has truly changed music marketing, discovery, and enjoyment. 
+Virality is defined as the concept of being quickly and widely spread or popularized, especially by means of social media ^[@mw_viral]. With TikTok entering the scene around 2018 as a short-form video platform and gaining major widespread popularity, the music industry experienced a massive shift ^[@stereofox_tiktok]. Tiny snippets of songs with catchy lyrics or fun beats, can be shared in a single video and reach millions of fans. This in turn spikes listening and streaming of the song. It has truly changed music marketing, discovery, and enjoyment. 
 
 ## What is the Billboard Hot 100? 
 
-For some background, the Billboard Hot 100 is a music popularity ranking that originated in its current form in 1958. Published weekly, it is a list of the most popular singles, originally based on radio airplay and the sales of the song, but now incorporates streaming data as well. If you hear that a song is "Number 1," that means that it has reached the peak ranking of #1 on the Billboard Hot 100. This article examines the Billboard Hot 100 data from January 2016 to December 2025, for a total of 522 weeks, 5869 songs, and ____ artists, scraped using billboard.py. 
+For some background, the Billboard Hot 100 is a music popularity ranking that originated in its current form in 1958 ^[@billboard_podcast]. Published weekly, it is a list of the most popular singles, originally based on radio airplay and the sales of the song, but now incorporates streaming data as well ^[@billboard_legend]. If you hear that a song is "Number 1," that means that it has reached the peak ranking of #1 on the Billboard Hot 100. This article examines the Billboard Hot 100 data from January 2016 to December 2025, for a total of 522 weeks, 5869 songs, and 1472 artists, scraped using billboard.py ^[@billboard_py]. 
 :::
 
 ::: {.cr-wrapper}
@@ -195,12 +196,13 @@ Of course, the number of weeks a song charts can give us give us an initial view
 ## How do we capture a flash or a burn?
 
 In order to quantify a song's climb up the chart and its fall down it, I calculate rise and decay rates. Both of these metrics are calculated as the average of all weekly differences, where rise rate is positive and calcluated based on the weeks and ranks from a song's debut to its peak, and the decay rate is negative and is calculated from a song's peak to its last day on the chart. Put simply, they are slopes: the rise rate is the average number of ranks a song increases per week up until its peak, and the decay rate is the average number of ranks a song decreases per week after peaking. A rise rate of 0 means that a song debuts at its peak, and a decay rate of 0 means it ends at its peak. 
-:::
 
+While these metrics provide a general assessment, they do have limitations. They only incorporate the initial ranking of a song, the peak ranking, the end ranking, and the number of weeks in between those points. Thus the rise and decay rates do not take into account the variability in a song's ranking before or after it reaches its peak. More influential for the decay rate calculations, songs that drop of the chart completely and then re-enter have extended post-peak lengths, and the final rank it ends on could be much higher than a lower rank it previously disappeared from. Thus the decay rate can appear very slow for a song that could have several flashes of popularity on the charts. 
+:::
 
 ::: {.chart-wrap}
 <iframe src="../../charts/rise_vs_decay.html" width=1000 height=600 style="border:none"></iframe>
-[caption here ]{.caption}
+[Diagram of song rise rate vs decay rate. Songs that only appear on the Billboard Hot 100 for a single week are not included.]{.caption}
 :::
 
 ::: {.prose}
@@ -219,9 +221,10 @@ Using the chart above, we can do an initial categorization of flash vs burn song
 
 ::: {.pathway-header}
 ### Taylor Swift 
+[Flash]{.artist-label}
 :::
 
-A major name in current pop music, Taylor Swift is the only artist to have won Album of the Year at the Grammys four times, and her 2023-2024 Eras Tour was the first concert tour to make $1 billion in revenue (@taylor_swift_records). Her songs have been charting on the Billboard Hot 100 since her debut album in 2006. In the most recent decade, however, she has released 11 albums. The longest charting singles from those albums can be seen below. 
+A major name in current pop music, Taylor Swift is the only artist to have won Album of the Year at the Grammys four times, and her 2023-2024 Eras Tour was the first concert tour to make $1 billion in revenue ^[@swift_records]. Her songs have been charting on the Billboard Hot 100 since her debut album in 2006. In the most recent decade, however, she has released 11 albums. The longest charting singles from those albums can be seen below. 
 
 ::: {.chart-wrap}
 ![](../../charts/timeline_taylor_swift.svg)
@@ -244,7 +247,7 @@ This next plot shows the distribution of the rise and decay rates for all of Tay
 :::
 
 :::{.prose}
-Taylor Swift's songs often debut at their peak or rocket up the charts in a single week. These are viral, popular songs, but they don't always stick around. Explore another artist to see slow decays and long-lasting hits. 
+Taylor Swift's songs often debut at their peak or fly up the charts in a single week. These are viral, popular songs, but they don't always stick around. Explore another artist to see slow decays and long-lasting hits. 
 :::
 
 [← Pick a different artist](#artist-picker-section){.back-btn}
@@ -260,10 +263,11 @@ Taylor Swift's songs often debut at their peak or rocket up the charts in a sing
 
 ::: {.pathway-header}
 ### Bad Bunny 
+[Climb]{.artist-label}
 :::
 
 ::: {.prose}
-You may remember him from the 2026 Super Bowl Halftime Show, Bad Bunny is a Puerto Rican singer and rapper bringing Latin rap into the mainstream. He started to gain recognition in 2016, so his entire Billboard Hot 100 history up until 2025 is contained in this data. His most recent album _Debí Tirar Más Fotos_, was the first Spanish-language album to win Album of the Year at the Grammy's, and _DTMF_ was the first Spanish-language song by a solo artist to reach Number 1 on the Billboard Hot 100. @ source A timeline of his longest charting songs can be seen below. 
+You may remember him from the 2026 Super Bowl Halftime Show, Bad Bunny is a Puerto Rican singer and rapper bringing Latin rap into the mainstream. He started to gain recognition in 2016, so his entire Billboard Hot 100 history up until 2025 is contained in this data. His most recent album _Debí Tirar Más Fotos_, was the first Spanish-language album to win Album of the Year at the Grammy's, and _DTMF_ was the first Spanish-language song by a solo artist to reach Number 1 on the Billboard Hot 100 ^[@bad_bunny_wiki]. A timeline of his longest charting songs can be seen below. 
 :::
 
 ::: {.chart-wrap}
@@ -307,10 +311,11 @@ While not extreme, Bad Bunny's songs have higher rise rates on average. Yet they
 
 ::: {.pathway-header}
 ### Shawn Mendes
+[Fade]{.artist-label}
 :::
 
 ::: {.prose}
-Shawn Mendes is a great example of sustained hits. With 4 albums releasing between 2016 and 2020, you may remember his older music like _Stitches_ or _Senorita_ with Camilla Cabello, though he returned to music with his most recent album in 2024. @ source Though he has fewer songs on the Billboard Hot 100 than other artists explored here, his discography an interesting case in terms of slow decay. A timeline of his longest charting songs can be seen below. 
+Shawn Mendes is a great example of sustained hits. With 4 albums releasing between 2016 and 2020, you may remember his older music like _Stitches_ or _Senorita_ with Camilla Cabello, though he returned to music with his most recent album in 2024 ^[@shawn_mendes_wiki]. Though he has fewer songs on the Billboard Hot 100 than other artists explored here, his discography an interesting case in terms of slow decay. A timeline of his longest charting songs can be seen below. 
 :::
 
 ::: {.chart-wrap}
@@ -338,7 +343,7 @@ This final plot highlights the rise and decay distributions for all of Shawn Men
 :::
 
 ::: {.prose}
-Unlike some of the other artists, Shawn Mendes has a slow decay rate, meaning that on average, his songs remain on the charts longer and drop fewer ranks. This is interesting in a world where attention spans are shorter and viral content is taking increasing precedence. 
+Unlike some of the other artists, Shawn Mendes has a slow decay rate, meaning that on average, his songs remain on the charts longer and drop fewer ranks. It is interesting that his songs are able to fade away like this in a world where attention spans are increasingly shorter and viral content is taking more precedence. 
 :::
 
 [← Pick a different artist](#artist-picker-section){.back-btn}
@@ -354,10 +359,11 @@ Unlike some of the other artists, Shawn Mendes has a slow decay rate, meaning th
 
 ::: {.pathway-header}
 ### Luke Combs 
+[Burn]{.artist-label}
 :::
 
 ::: {.prose}
-A decorated country singer, Luke Combs has not yet achieved a Billboard Hot 100 Number 1 song. That being said, his data is still interesting to dive into. With 39 songs appearing in this time period, his songs range from 1 to 56 total weeks on the chart. His longest charting singles can be seen in the timeline below. 
+A decorated country singer, Luke Combs has not yet achieved a Billboard Hot 100 Number 1 song ^[@luke_combs_wiki]. That being said, his data is still interesting to dive into. With 39 songs appearing in this time period, his songs range from 1 to 56 total weeks on the chart. His longest charting singles can be seen in the timeline below. 
 :::
 
 ::: {.chart-wrap}
@@ -394,42 +400,12 @@ While Luke Combs's discography is more balanced, other artists reach flash and b
 </div>
 ```
 
-## Marshmello
-
-```{=html}
-<div id="pathway-e" class="pathway">
-```
-
-::: {.pathway-header}
-### Marshmello
-:::
-
-::: {.chart-wrap}
-![](../../charts/timeline_marshmello.svg)
-:::
-
-::: {.chart-wrap}
-<div class="plot-container">
-<iframe src="../../charts/heatmap_marshmello.html?v=1"></iframe>
-</div>
-:::
-
-::: {.chart-wrap}
-<div class="plot-container">
-<iframe src="../../charts/violin_marshmello.html?v=1"></iframe>
-</div>
-:::
-
-[← Pick a different artist](#artist-picker-section){.back-btn}
-```{=html}
-</div>
-```
 :::
 
 ::: {.prose}
 ## How did virality change over time?
 
-Now that you've seen some specific examples, let's dive into how these measures of popularity rise and fall changed over time. The era of this data has many influential moments, mainly the rise of TikTok and other short-form video sharing platforms, like Instagram Reels and YouTube Shorts. This coincided with the COVID-19 pandemic, which forced everyone inside and made social media one of the main forms of human connection. 
+Now that you've seen some specific examples, let's dive into how these measures of popularity rise and fall changed over time. The era of this data has many influential moments, mainly the rise of TikTok and other short-form video sharing platforms, like Instagram Reels and YouTube Shorts ^[@bbc_tiktok]. This coincided with the COVID-19 pandemic, which forced everyone inside and made social media one of the main forms of human connection. 
 :::
 
 ::: {.cr-wrapper}
@@ -482,6 +458,12 @@ This is important to keep in mind as we turn to the distribution of rise and dec
 <section id="conclusion">
   <div class="conclusion-inner">
 
+    <h2>Virality vs Endurability</h2>
+
+    <p style="color:#1a1a1a; font-size:0.9rem; line-height:1.6; max-width: 800px; margin-bottom:2rem;">
+      While the Billboard Hot 100 Chart can give insight into a song or artist's success and popularity, many other things should be considered when measuring virality. Social media shares and anticipation for a song before it is released can make a song go viral before it even reaches the charts, where it can debut at its peak and flatten its rise rate metric to zero. Both rates span across chart re-entries and flucuations, not fully capturing the granular variability of song popularity up and down the charts. That being said, it is interesting to explore specific songs and artists, and I would be interested in furthering this analysis across with categories like song genre, artist gender, or song specifc features, as well as incorporate data from social media. 
+    </p>
+
     <h2>What does the decade tell us?</h2>
 
     <div class="insight-grid">
@@ -494,15 +476,23 @@ This is important to keep in mind as we turn to the distribution of rise and dec
         <div class="insight-label">Fastest turnover at #1<br>2020</div>
       </div>
       <div class="insight-card">
-        <div class="insight-stat">x2</div>
+        <div class="insight-stat">×2</div>
         <div class="insight-label">Increase in median weeks at #1,<br>2016 to 2025</div>
       </div>
     </div>
 
-    <p style="color:#1a1a1a; font-size:0.9rem; line-height:1.6; max-width:640px; margin-bottom:2rem;">
-      In general more songs come and go quickly, as seen with the decrease in average weeks on the chart, while a smaller number of hits dominate the top for longer, as seen with the increase in median weeks at #1.
+    <p style="color:#1a1a1a; font-size:0.9rem; line-height:1.6; max-width:800px; margin-bottom:2rem;">
+      In general, more songs come and go, as seen with the decrease in average weeks on the chart and general increase of unique songs, while the rarer hits dominate the top for longer, as seen with the increase in median weeks at #1. The overall rise rate trend doesn't necessarily indicate that songs are becoming more viral, though this could be affected by the increase in songs that debut at their peak. Because of this disparity, it would be interesting to compare rise and decay rates across the rankings, attempting to discover if higher peaking songs rise and fall faster or slower than songs that peak lower. 
     </p>
 
   </div>
 </section>
 ```
+
+---
+
+[All Sources](references.qmd)
+
+[AI Usage Log](ai_log.qmd)
+
+[Technical Appendix](tech_appendix.qmd)

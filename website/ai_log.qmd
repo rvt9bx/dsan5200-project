@@ -1,0 +1,20 @@
+---
+title: "AI Usage Log"
+---
+
+# AI Usage Log
+
+::: {.prose}
+Most AI assistance in this project was provided by Claude Sonnet 4.6 (Anthropic). Additional small code error debugging was done with ChatGPT GPT-5.3-mini model (OpenAI).
+
+| # | Task |
+|---|---|
+| 1 | Idea refinement and article outline brainstorming | 
+| 2 | Quarto style customization |
+| 3 | Altair syntax help | 
+| 4 | Plotly syntax help |
+| 5 | Technical appendix summarization |
+| 6 | Code error debugging |
+
+All code and content was reviewed, tested, and integrated by the author. AI-generated code was heavily modified to fit the specific data structure and design requirements of this project.
+:::

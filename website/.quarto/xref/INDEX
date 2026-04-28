@@ -1,5 +1,14 @@
 {
   "index.qmd": {
     "index.html": "e8f63b23"
+  },
+  "references.qmd": {
+    "references.html": "28b3eb79"
+  },
+  "ai_log.qmd": {
+    "ai_log.html": "b666c238"
+  },
+  "tech_appendix.qmd": {
+    "tech_appendix.html": "f24fde90"
   }
 }
