@@ -224,14 +224,14 @@ Using the chart above, we can do an initial categorization of flash vs burn song
 A major name in current pop music, Taylor Swift is the only artist to have won Album of the Year at the Grammys four times, and her 2023-2024 Eras Tour was the first concert tour to make $1 billion in revenue (@taylor_swift_records). Her songs have been charting on the Billboard Hot 100 since her debut album in 2006. In the most recent decade, however, she has released 11 albums. The longest charting singles from those albums can be seen below. 
 
 ::: {.chart-wrap}
-![](charts/timeline_taylor_swift.svg)
+![](../../charts/timeline_taylor_swift.svg)
 :::
 
 Besides all of that, her single _ME!_ with Brendon Urie has the highest rise rate for any song in the Hot 100 between 2016 and 2025. In just one week, it rose from its debut rank at \#100 to \#2, for an increase of 98 ranks per week. Another viral rise was _Look What You Made Me Do_, from 2017's Reputation album. This was a surprise drop with no lead up marketing, and the song rose from a \#77 debut to \#1 in a single week. Previously mentioned was her song _Mr. Perfectly Fine (Taylor's Version)_, which also has a very high rise rate of 60 ranks per week. In the plot below, the top 20 of Taylor Swift's songs with the highest rise rates are shown. Each song's bar is colored by rank for the weeks since its first appearance on the chart in this time frame, where darker corresponds to a higher rank. Feel free to hover over the chart or zoom in to get a closer look. 
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="charts/heatmap_taylor_swift.html?v=1"></iframe>
+<iframe src="../../charts/heatmap_taylor_swift.html?v=1"></iframe>
 </div>
 :::
 
@@ -239,7 +239,7 @@ This next plot shows the distribution of the rise and decay rates for all of Tay
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="charts/violin_taylor_swift.html?v=1"></iframe>
+<iframe src="../../charts/violin_taylor_swift.html?v=1"></iframe>
 </div>
 :::
 
@@ -276,7 +276,7 @@ While Bad Bunny doesn't have as extreme rise rates like Taylor Swift; _La Mudanz
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="charts/heatmap_bad_bunny.html?v=1"></iframe>
+<iframe src="../../charts/heatmap_bad_bunny.html?v=1"></iframe>
 </div>
 :::
 
@@ -286,7 +286,7 @@ Next we can see the distribution of Bad Bunny's rise and decay rates. For the ri
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="charts/violin_bad_bunny.html?v=1"></iframe>
+<iframe src="../../charts/violin_bad_bunny.html?v=1"></iframe>
 </div>
 :::
 
@@ -323,7 +323,7 @@ In the heatmap below that shows selected songs with the slowest decay rates, you
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="charts/heatmap_shawn_mendes.html?v=1"></iframe>
+<iframe src="../../charts/heatmap_shawn_mendes.html?v=1"></iframe>
 </div>
 :::
 
@@ -333,7 +333,7 @@ This final plot highlights the rise and decay distributions for all of Shawn Men
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="charts/violin_shawn_mendes.html?v=1"></iframe>
+<iframe src="../../charts/violin_shawn_mendes.html?v=1"></iframe>
 </div>
 :::
 
@@ -370,7 +370,7 @@ Luke Combs is an interesting case: he is not at the tippy top of either of these
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="charts/heatmap_luke_combs.html?v=1"></iframe>
+<iframe src="../../charts/heatmap_luke_combs.html?v=1"></iframe>
 </div>
 :::
 
@@ -380,7 +380,7 @@ Like mentioned before, Luke Combs has more of a balance between rise and decay r
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="charts/violin_luke_combs.html?v=1"></iframe>
+<iframe src="../../charts/violin_luke_combs.html?v=1"></iframe>
 </div>
 :::
 
@@ -410,13 +410,13 @@ While Luke Combs's discography is more balanced, other artists reach flash and b
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="charts/heatmap_marshmello.html?v=1"></iframe>
+<iframe src="../../charts/heatmap_marshmello.html?v=1"></iframe>
 </div>
 :::
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="charts/violin_marshmello.html?v=1"></iframe>
+<iframe src="../../charts/violin_marshmello.html?v=1"></iframe>
 </div>
 :::
 
