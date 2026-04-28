@@ -84,20 +84,13 @@ main.content { padding: 0; margin: 0; }
   font-weight: 700;
   margin: 3rem 0 1rem;
   color: #1a1a1a;
-}
-
-/* ─── section dividers ─── */
-.section-rule {
-  border: none;
-  border-top: 1px solid #d8d2c6;
-  max-width: 640px;
-  margin: 4rem auto;
+  border-bottom: 1px solid #d8d2c6;
 }
 
 /* ─── static viz captions ─── */
 .chart-wrap {
   max-width: 950px;
-  margin: 2rem auto;
+  margin: 0rem auto;
   padding: 0 0rem;
 }
 
@@ -113,6 +106,19 @@ main.content { padding: 0; margin: 0; }
   margin-top: 0.6rem;
   line-height: 1.5;
   font-style: italic;
+}
+
+/* ─── plotly containers ─── */
+.plot-container {
+  width: 100%;
+  height: 500px;
+  position: relative;
+}
+
+.plot-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 /* ─── tabset full width tabs ─── */
@@ -203,14 +209,7 @@ main.content { padding: 0; margin: 0; }
   max-width: 950px;
   margin: 0 auto;
   padding: 4rem 2rem 2rem;
-  // border-top: 3px solid;
 }
-
-// #pathway-a .pathway-header { border-color: #320b8d; }
-// #pathway-b .pathway-header { border-color: #06395b; }
-// #pathway-c .pathway-header { border-color: #4f0335; }
-// #pathway-d .pathway-header { border-color: #6b2d0f; }
-// #pathway-e .pathway-header { border-color: #1a5c3a; }
 
 .pathway-header .artist-label {
   font-size: 0.75rem;
@@ -250,6 +249,18 @@ main.content { padding: 0; margin: 0; }
 
 
 /* ─── closeread narrative column ─── */
+.cr-wrapper {
+  max-width: 950px;
+  margin: 0 auto;
+  background-color: #f5f0e8;
+  padding: 3rem 2rem;
+}
+
+.cr-wrapper .cr-section {
+  max-width: 100%;
+  background-color: #f5f0e8 !important;
+}
+
 .cr-narrative-col {
   font-family: 'Source Sans 3', sans-serif;
   font-size: 1rem;
@@ -257,12 +268,12 @@ main.content { padding: 0; margin: 0; }
 }
 
 .narrative-block {
-  background: transparent;
+  background-color: rgba(195, 177, 239, 0.06);
   border: none;
-  border-left: 2px solid #320b8d;
   padding: 0.5rem 0 0.5rem 1.25rem;
-  max-width: 340px;
+  max-width: 400px;
   color: #1a1a1a;
+  text-align: center;
 }
 
 /* ─── closeread sticky height ─── */
@@ -270,10 +281,10 @@ main.content { padding: 0; margin: 0; }
   height: 85vh;
 }
 
-/* ─── conclusion / infographic section ─── */
+/* ─── conclusion ─── */
 #conclusion {
-  background: #1a1a1a;
-  color: #f5f0e8;
+  background: #320b8d48;
+  color: #1a1a1a;
   padding: 6rem 2rem;
   margin-top: 4rem;
 }
@@ -286,8 +297,10 @@ main.content { padding: 0; margin: 0; }
 #conclusion h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
-  color: #f5f0e8;
+  color: #1a1a1a;
   margin-bottom: 3rem;
+  border-bottom: none !important;
+  text-decoration: none !important;
 }
 
 #conclusion .insight-grid {
@@ -298,7 +311,7 @@ main.content { padding: 0; margin: 0; }
 }
 
 #conclusion .insight-card {
-  border-top: 1px solid #444;
+  border-top: 1px solid #333;
   padding-top: 1.25rem;
 }
 
@@ -306,43 +319,13 @@ main.content { padding: 0; margin: 0; }
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
   font-weight: 900;
-  color: #f5f0e8;
+  color: #1a1a1a;
   line-height: 1;
   margin-bottom: 0.5rem;
 }
 
 #conclusion .insight-label {
   font-size: 0.85rem;
-  color: #aaa;
-  line-height: 1.5;
-}
-
-#conclusion .typology-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-top: 3rem;
-  border-top: 1px solid #333;
-  padding-top: 2rem;
-}
-
-#conclusion .type-card {
-  padding: 1rem;
-  background: #252525;
-  border-radius: 2px;
-}
-
-#conclusion .type-name {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #888;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-#conclusion .type-def {
-  font-size: 0.9rem;
-  color: #ccc;
+  color: #333;
   line-height: 1.5;
 }

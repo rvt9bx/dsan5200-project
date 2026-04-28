@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "Flashor Burn",
     "section": "",
-    "text": "Billboard Hot 100 · 2016–2025\n  \n  Can we measure the virality or endurability of songs with the Billboard Hot 100 Charts? Dive in to explore different artists and the music landscape of the past decade.\n  Eleanor Byrd  ·  Spring 2026\nAdd some sort of image or icon music related\nMore text here"
+    "text": "Billboard Hot 100 · 2016–2025\n  \n  Can we measure the virality or endurability of songs with the Billboard Hot 100 Charts? Dive in to explore different artists and the music landscape of the past decade.\n  Eleanor Byrd  ·  Spring 2026\nAdd some sort of image or icon music related"
   },
   {
     "objectID": "index.html#what-is-the-billboard-hot-100",
     "href": "index.html#what-is-the-billboard-hot-100",
     "title": "Flashor Burn",
     "section": "What is the Billboard Hot 100?",
-    "text": "What is the Billboard Hot 100?\nFor some background, the Billboard Hot 100 is a music popularity ranking that originated in its current form in 1958. Published weekly, it is a list of the most popular singles, originally based on radio airplay and the sales of the song, but now incorporates streaming data as well. If you hear that a song is “Number 1,” that means that it has reached the peak ranking of #1 on the Billboard Hot 100. This article examines the Billboard Hot 100 data from January 2016 to December 2025, for a total of 522 weeks, 5869 songs, and ____ artists, scraped using billboard.py. Below, we can see a visualization of the artists that had the most songs chart during this time period."
+    "text": "What is the Billboard Hot 100?\nFor some background, the Billboard Hot 100 is a music popularity ranking that originated in its current form in 1958. Published weekly, it is a list of the most popular singles, originally based on radio airplay and the sales of the song, but now incorporates streaming data as well. If you hear that a song is “Number 1,” that means that it has reached the peak ranking of #1 on the Billboard Hot 100. This article examines the Billboard Hot 100 data from January 2016 to December 2025, for a total of 522 weeks, 5869 songs, and ____ artists, scraped using billboard.py."
   },
   {
     "objectID": "index.html#how-do-we-capture-a-flash-or-a-burn",
@@ -19,5 +19,12 @@
     "title": "Flashor Burn",
     "section": "How do we capture a flash or a burn?",
     "text": "How do we capture a flash or a burn?\nIn order to quantify a song’s climb up the chart and its fall down it, I calculate rise and decay rates. Both of these metrics are calculated as the average of all weekly differences, where rise rate is positive and calcluated based on the weeks and ranks from a song’s debut to its peak, and the decay rate is negative and is calculated from a song’s peak to its last day on the chart. Put simply, they are slopes: the rise rate is the average number of ranks a song increases per week up until its peak, and the decay rate is the average number of ranks a song decreases per week after peaking. A rise rate of 0 means that a song debuts at its peak, and a decay rate of 0 means it ends at its peak."
+  },
+  {
+    "objectID": "index.html#how-did-virality-change-over-time",
+    "href": "index.html#how-did-virality-change-over-time",
+    "title": "Flashor Burn",
+    "section": "How did virality change over time?",
+    "text": "How did virality change over time?\nNow that you’ve seen some specific examples, let’s dive into how these measures of popularity rise and fall changed over time. The era of this data has many influential moments, mainly the rise of TikTok and other short-form video sharing platforms, like Instagram Reels and YouTube Shorts. This coincided with the COVID-19 pandemic, which forced everyone inside and made social media one of the main forms of human connection."
   }
 ]

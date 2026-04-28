@@ -5,6 +5,8 @@ format:
         html:
             page-layout: full
             self-contained: true
+        cr-section:
+            layout: "overlay-center"
 ---
 
 
@@ -23,25 +25,54 @@ format:
 Add some sort of image or icon music related 
 
 ::: {.prose}
-Virality is defined as the concept of being quickly and widely spread or popularized, especially by means of social media [@merriam_webster_viral]. With TikTok entering the scene around 2018 as a short-form video platform and gaining major widespread popularity, the music industry experienced a massive shift. Tiny snippets of songs with catchy lyrics or fun beats, can be shared in a single video and reach millions of fans. This in turn spikes listening and streaming of the song. It has truly changed music marketing. 
+Virality is defined as the concept of being quickly and widely spread or popularized, especially by means of social media [@merriam_webster_viral]. With TikTok entering the scene around 2018 as a short-form video platform and gaining major widespread popularity, the music industry experienced a massive shift. Tiny snippets of songs with catchy lyrics or fun beats, can be shared in a single video and reach millions of fans. This in turn spikes listening and streaming of the song. It has truly changed music marketing, discovery, and enjoyment. 
 
 ## What is the Billboard Hot 100? 
 
-For some background, the Billboard Hot 100 is a music popularity ranking that originated in its current form in 1958. Published weekly, it is a list of the most popular singles, originally based on radio airplay and the sales of the song, but now incorporates streaming data as well. If you hear that a song is "Number 1," that means that it has reached the peak ranking of #1 on the Billboard Hot 100. This article examines the Billboard Hot 100 data from January 2016 to December 2025, for a total of 522 weeks, 5869 songs, and ____ artists, scraped using billboard.py. Below, we can see a visualization of the artists that had the most songs chart during this time period. 
+For some background, the Billboard Hot 100 is a music popularity ranking that originated in its current form in 1958. Published weekly, it is a list of the most popular singles, originally based on radio airplay and the sales of the song, but now incorporates streaming data as well. If you hear that a song is "Number 1," that means that it has reached the peak ranking of #1 on the Billboard Hot 100. This article examines the Billboard Hot 100 data from January 2016 to December 2025, for a total of 522 weeks, 5869 songs, and ____ artists, scraped using billboard.py. 
 :::
 
+::: {.cr-wrapper}
+::: {.cr-section}
+
+Here, we can see a visualization of the artists that had the most songs chart during this time period. @cr-songs-per-artist-plot 
+
+The artists are unsurprising, with some of the most popular singers of the past decade, ranging from Drake with 266 songs to Ariana Grande with 84. 
+
+::: {#cr-songs-per-artist-plot .cr-sticky}
 ::: {.chart-wrap}
 ![](../../charts/num_songs_per_artist.svg)
-[Your caption text here]{.caption}
+[Diagram of number of unique songs on the Billboard Hot 100 chart for the 20 most charting artists. The number of songs includes duets or features that the artist appeared on.]{.caption}
+:::
+:::
+:::
 :::
 
 ::: {.prose}
 If a song remains popular, it can chart for many weeks, moving up and down the rankings. It can even drop off the chart and reappear if there is another spike in popularity. Below we have a vizualization of the longest charting songs over the past decade. These songs are examples of truly enduring hits that might not be the highest ranking song for all of its weeks on the chart, but they have consistent enough streams and sales in order to keep them in the top 100. 
 :::
 
+::: {.cr-wrapper}
+::: {.cr-section}
+
+Now, here are the longest charting songs during this time period. @cr-song-weeks-plot 
+
+Teddy Swims's _Lose Control_ charted for over two years, with only one week where it did not appear on the Billboard Hot 100. @cr-lose-control 
+
+::: {#cr-song-weeks-plot .cr-sticky}
 ::: {.chart-wrap}
 ![](../../charts/num_weeks_per_song.svg)
 [Diagram of number of weeks on the Billboard Hot 100 chart for the 20 most charting songs. The number of weeks represents the total number of weeks on the chart from 2016-2025, not necessarity consecutive weeks.]{.caption}
+:::
+:::
+
+::: {#cr-lose-control .cr-sticky}
+::: {.chart-wrap}
+![](../../charts/teddy_swims_infographic.png)
+:::
+:::
+
+:::
 :::
 
 ::: {.prose}
@@ -168,12 +199,12 @@ In order to quantify a song's climb up the chart and its fall down it, I calcula
 
 
 ::: {.chart-wrap}
-<iframe src="../../charts/rise_vs_decay.html" width=1000 height=800 style="border:none"></iframe>
+<iframe src="../../charts/rise_vs_decay.html" width=1000 height=600 style="border:none"></iframe>
 [caption here ]{.caption}
 :::
 
 ::: {.prose}
-Using the chart above, we can do an initial categorization of flash vs burn songs. Songs in the bottom right quadrant are true "flash" songs that rise quickly up the rankings and then drop just as fast. For example, Taylor Swift's __Mr. Perfectly Fine (Taylor's Version)__ started at #90, peaked at #30 the next week, and then dropped back to #90 the next week and didn't reappear on the chart. Songs on the top right are viral hits, they climb quickly up the charts like the flashes, but they stick around and stay popular, with low decay rates. The bottom left corner is the opposite, they have slower rises up the charts, and their popularity isn't sustainable and they rapidly drop in the rankings before falling off the chart. Most songs are clustered in the top left corner, with both slow rise rates and slow decay rates. 
+Using the chart above, we can do an initial categorization of flash vs burn songs. Songs in the bottom right quadrant are true "flash" songs that rise quickly up the rankings and then drop just as fast. For example, Taylor Swift's _Mr. Perfectly Fine (Taylor's Version)_ started at #90, peaked at #30 the next week, and then dropped back to #90 the next week and didn't reappear on the chart. Songs on the top right are viral hits, they climb quickly up the charts like the flashes, but they stick around and stay popular, with low decay rates. The bottom left corner is the opposite, they either debut at their peak if they lie on the vertical axis, or they have slow rises up the charts. Yet, their extreme decay rates mean that their popularity isn't sustainable and they rapidly drop in the rankings before falling off the chart. Most songs are clustered in the top left corner, with both slow rise rates and slow decay rates. 
 :::
 
 
@@ -187,47 +218,33 @@ Using the chart above, we can do an initial categorization of flash vs burn song
 ```
 
 ::: {.pathway-header}
-[Archetype]{.artist-label}
-
 ### Taylor Swift 
 :::
 
-Your Closeread section and content here...
+A major name in current pop music, Taylor Swift is the only artist to have won Album of the Year at the Grammys four times, and her 2023-2024 Eras Tour was the first concert tour to make $1 billion in revenue (@taylor_swift_records). Her songs have been charting on the Billboard Hot 100 since her debut album in 2006. In the most recent decade, however, she has released 11 albums. The longest charting singles from those albums can be seen below. 
 
 ::: {.chart-wrap}
-![](../../charts/timeline_taylor_swift.svg)
+![](charts/timeline_taylor_swift.svg)
 :::
 
+Besides all of that, her single _ME!_ with Brendon Urie has the highest rise rate for any song in the Hot 100 between 2016 and 2025. In just one week, it rose from its debut rank at \#100 to \#2, for an increase of 98 ranks per week. Another viral rise was _Look What You Made Me Do_, from 2017's Reputation album. This was a surprise drop with no lead up marketing, and the song rose from a \#77 debut to \#1 in a single week. Previously mentioned was her song _Mr. Perfectly Fine (Taylor's Version)_, which also has a very high rise rate of 60 ranks per week. In the plot below, the top 20 of Taylor Swift's songs with the highest rise rates are shown. Each song's bar is colored by rank for the weeks since its first appearance on the chart in this time frame, where darker corresponds to a higher rank. Feel free to hover over the chart or zoom in to get a closer look. 
+
 ::: {.chart-wrap}
-<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
-  <iframe
-    src="../../charts/heatmap_taylor_swift.html"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    ">
-  </iframe>
+<div class="plot-container">
+<iframe src="charts/heatmap_taylor_swift.html?v=1"></iframe>
 </div>
 :::
 
+This next plot shows the distribution of the rise and decay rates for all of Taylor Swift's songs on the Hot 100 from 2016 to 2025. In the distribution plot, the rise rate has a large spike at 0, meaning a lot of her songs debut at their peak rank. There is a long tail to the right though, which indicates some outlier songs that have extremely fast jumps up the chart. The decay rate distribution of Taylor Swift's songs is less volatile, with a peak at around -10 and a tail out to about -87. Compared to other artists, Taylor Swift's songs have pretty fast decay rates, meaning that their popularity isn't sustained for long periods of time.
+
 ::: {.chart-wrap}
-<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
-  <iframe
-    src="../../charts/violin_taylor_swift.html"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    ">
-  </iframe>
+<div class="plot-container">
+<iframe src="charts/violin_taylor_swift.html?v=1"></iframe>
 </div>
+:::
+
+:::{.prose}
+Taylor Swift's songs often debut at their peak or rocket up the charts in a single week. These are viral, popular songs, but they don't always stick around. Explore another artist to see slow decays and long-lasting hits. 
 :::
 
 [← Pick a different artist](#artist-picker-section){.back-btn}
@@ -242,50 +259,39 @@ Your Closeread section and content here...
 ```
 
 ::: {.pathway-header}
-[Artist 2]{.artist-label}
-
 ### Bad Bunny 
+:::
+
+::: {.prose}
+You may remember him from the 2026 Super Bowl Halftime Show, Bad Bunny is a Puerto Rican singer and rapper bringing Latin rap into the mainstream. He started to gain recognition in 2016, so his entire Billboard Hot 100 history up until 2025 is contained in this data. His most recent album _Debí Tirar Más Fotos_, was the first Spanish-language album to win Album of the Year at the Grammy's, and _DTMF_ was the first Spanish-language song by a solo artist to reach Number 1 on the Billboard Hot 100. @ source A timeline of his longest charting songs can be seen below. 
 :::
 
 ::: {.chart-wrap}
 ![](../../charts/timeline_bad_bunny.svg)
 :::
 
-::: {.chart-wrap}
-<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
-  <iframe
-    src="../../charts/heatmap_bad_bunny.html"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    ">
-  </iframe>
-</div>
+::: {.prose}
+While Bad Bunny doesn't have as extreme rise rates like Taylor Swift; _La Mudanza_ is the fastest climbing, jumping 44 ranks in one week. He has many songs that climb more than 10 ranks a week on average. Based on the average of all 83 songs that chart for longer than a single week, Bad Bunny one of the highest rise rate for artists with more than 20 songs (while the two artists above him still had more than 20 songs, they had significantly less than 83). In the plot below, the top 20 of Bad Bunny's songs with the highest rise rates are shown. Each song's bar is colored by rank for the weeks since its first appearance on the chart in this time frame, where darker corresponds to a higher rank. Feel free to hover over the chart or zoom in to get a closer look. 
 :::
 
 ::: {.chart-wrap}
-<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
-  <iframe
-    src="../../charts/violin_bad_bunny.html"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    ">
-  </iframe>
+<div class="plot-container">
+<iframe src="charts/heatmap_bad_bunny.html?v=1"></iframe>
 </div>
 :::
 
+::: {.prose}
+Next we can see the distribution of Bad Bunny's rise and decay rates. For the rise rate, there is a spike at 0, meaning many of his songs debut at their peak. There is a long tail to the right, but that tail has thickness to it, indicating those high rise rates aren't just one-off viral songs: he has many singles that climb fast. On average his songs decay at a rate of about 14 ranks per week, which is slower than Taylor Swift, but faster than some more enduring artists.
+::: 
+
+::: {.chart-wrap}
+<div class="plot-container">
+<iframe src="charts/violin_bad_bunny.html?v=1"></iframe>
+</div>
+:::
 
 :::{.prose}
-Text about bad bunny here.
+While not extreme, Bad Bunny's songs have higher rise rates on average. Yet they still don't endure on the chart forever. Go back and explore artists with more viral or enduring songs. 
 :::
 
 [← Pick a different artist](#artist-picker-section){.back-btn}
@@ -300,47 +306,40 @@ Text about bad bunny here.
 ```
 
 ::: {.pathway-header}
-[Artist 3]{.artist-label}
-
 ### Shawn Mendes
+:::
+
+::: {.prose}
+Shawn Mendes is a great example of sustained hits. With 4 albums releasing between 2016 and 2020, you may remember his older music like _Stitches_ or _Senorita_ with Camilla Cabello, though he returned to music with his most recent album in 2024. @ source Though he has fewer songs on the Billboard Hot 100 than other artists explored here, his discography an interesting case in terms of slow decay. A timeline of his longest charting songs can be seen below. 
 :::
 
 ::: {.chart-wrap}
 ![](../../charts/timeline_shawn_mendes.svg)
 :::
 
-::: {.chart-wrap}
-<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
-  <iframe
-    src="../../charts/heatmap_shawn_mendes.html"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    ">
-  </iframe>
-</div>
+::: {.prose}
+In the heatmap below that shows selected songs with the slowest decay rates, you can see just how long Shawn Mendes's songs remain on the chart. Though _Treat You Better_ achieves the maximum of 39 total weeks, out of all his songs fifty percent chart for 16 weeks or more. This leads to him having one of the slowest average decay rates for artists with more than 10 songs. This cutoff for artists having more than 10 songs is important, since songs with the absolute smallest decay rates are usually one-off holiday songs that re-enter the charts each year. This extends the time frame over which decay is calculated and thus lowers the rate, though the song is probably only actively on the chart for a few weeks of the year. _Senorita_ has the slowest decay rate of Shawn Mendes's discography, averaging -1.5 ranks per week over 28 weeks after it peaked at #1. 
 :::
 
 ::: {.chart-wrap}
-<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
-  <iframe
-    src="../../charts/violin_shawn_mendes.html"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    ">
-  </iframe>
+<div class="plot-container">
+<iframe src="charts/heatmap_shawn_mendes.html?v=1"></iframe>
 </div>
 :::
 
+::: {.prose}
+This final plot highlights the rise and decay distributions for all of Shawn Mendes's songs that appeared on the Hot 100 chart. Even just at a glance the spread is much smaller than for any of the other artists explored here. The decay rate distribution peaks at around -2.3, and has a mean of only -3.6 ranks per week. He also has a smaller rise rate distribution, with a mean of 1.6 and a maximum of only 6.5. 
+:::
+
+::: {.chart-wrap}
+<div class="plot-container">
+<iframe src="charts/violin_shawn_mendes.html?v=1"></iframe>
+</div>
+:::
+
+::: {.prose}
+Unlike some of the other artists, Shawn Mendes has a slow decay rate, meaning that on average, his songs remain on the charts longer and drop fewer ranks. This is interesting in a world where attention spans are shorter and viral content is taking increasing precedence. 
+:::
 
 [← Pick a different artist](#artist-picker-section){.back-btn}
 ```{=html}
@@ -354,45 +353,39 @@ Text about bad bunny here.
 ```
 
 ::: {.pathway-header}
-[Artist 4]{.artist-label}
-
 ### Luke Combs 
+:::
+
+::: {.prose}
+A decorated country singer, Luke Combs has not yet achieved a Billboard Hot 100 Number 1 song. That being said, his data is still interesting to dive into. With 39 songs appearing in this time period, his songs range from 1 to 56 total weeks on the chart. His longest charting singles can be seen in the timeline below. 
 :::
 
 ::: {.chart-wrap}
 ![](../../charts/timeline_luke_combs.svg)
 :::
 
-::: {.chart-wrap}
-<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
-  <iframe
-    src="../../charts/heatmap_luke_combs.html"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    ">
-  </iframe>
-</div>
+::: {.prose}
+Luke Combs is an interesting case: he is not at the tippy top of either of these lists, but he appears in both the top 15 artists with the fastest average rise rates and the slowest decay rates, based on artists with more than 20 songs. Based on this, he seems to have achieved a balance between viral song popularity and sustainability. _Where The Wild Things Are_ has his slowest decay rate at -0.3 ranks per week, while _The Man He Sees In Me_ has his fastest rise rate, at 19 ranks per week. The plot below shows the chart position for 20 of his songs, in order of decay rate with slowest at the top. 
 :::
 
 ::: {.chart-wrap}
-<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
-  <iframe
-    src="../../charts/violin_luke_combs.html"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    ">
-  </iframe>
+<div class="plot-container">
+<iframe src="charts/heatmap_luke_combs.html?v=1"></iframe>
 </div>
+:::
+
+::: {.prose}
+Like mentioned before, Luke Combs has more of a balance between rise and decay rates. On average, his songs rise 3.3 ranks per week and drop 8.9 ranks per week. Though there are some decay rate outliers, the median tells us that half of his songs decay at a rate of -3.1 or slower. Maybe Luke Combs has mastered the art of the "burn."
+:::
+
+::: {.chart-wrap}
+<div class="plot-container">
+<iframe src="charts/violin_luke_combs.html?v=1"></iframe>
+</div>
+:::
+
+::: {.prose}
+While Luke Combs's discography is more balanced, other artists reach flash and burn extremes. Go back and check them out above, or continue below to see how the Billboard Hot 100 chart has evolved over the past decade.
 :::
 
 
@@ -408,8 +401,6 @@ Text about bad bunny here.
 ```
 
 ::: {.pathway-header}
-[Artist 5]{.artist-label}
-
 ### Marshmello
 :::
 
@@ -418,37 +409,16 @@ Text about bad bunny here.
 :::
 
 ::: {.chart-wrap}
-<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
-  <iframe
-    src="../../charts/heatmap_marshmello.html"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    ">
-  </iframe>
+<div class="plot-container">
+<iframe src="charts/heatmap_marshmello.html?v=1"></iframe>
 </div>
 :::
 
 ::: {.chart-wrap}
-<div style="position: relative; width: 100%; height: 100%; padding-top: 60%;">
-  <iframe
-    src="../../charts/violin_marshmello.html"
-    style="
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    ">
-  </iframe>
+<div class="plot-container">
+<iframe src="charts/violin_marshmello.html?v=1"></iframe>
 </div>
 :::
-
 
 [← Pick a different artist](#artist-picker-section){.back-btn}
 ```{=html}
@@ -456,11 +426,83 @@ Text about bad bunny here.
 ```
 :::
 
+::: {.prose}
+## How did virality change over time?
 
-More text here 
+Now that you've seen some specific examples, let's dive into how these measures of popularity rise and fall changed over time. The era of this data has many influential moments, mainly the rise of TikTok and other short-form video sharing platforms, like Instagram Reels and YouTube Shorts. This coincided with the COVID-19 pandemic, which forced everyone inside and made social media one of the main forms of human connection. 
+:::
+
+::: {.cr-wrapper}
+::: {.cr-section}
+
+This chart shows that 2020 was a major year for the Billboard Hot 100. Over 800 unique songs appeared on it, with 22 different songs reaching the number 1 spot. @cr-waffle
+
+This breadth of music was not fully maintained, as the number of unique songs on the chart has fallen to back to 711 in 2025. 
+
+That being said, there is still more turnover in music popularity after the pandemic and rise of TikTok, as compared to before.  
+
+::: {#cr-waffle .cr-sticky}
+::: {.chart-wrap}
+![](../../charts/waffle.svg)
+[Diagram of number of unique songs on the Billboard Hot 100 chart per year, where each small square represents a song.]{.caption}
+:::
+:::
+:::
+:::
+
+::: {.prose}
+Another interesting aspect of the Billboard Hot 100 over time is the percentage of songs that debut at their peak. These songs end up with a rise rate of 0, but they could very well have gone viral before hitting the chart. Since we don't have any data on the anticipation for songs before they are released or their popularity before they reach the Billboard Hot 100, the behavior of these songs remains an open question. 
+:::
+
+::: {.cr-wrapper}
+::: {.cr-section}
+
+What we do know, however, is that change of percentage of songs that debut on the Hot 100 Chart at their peak ranking is very similar to the trend of number of unique songs. @cr-percentage
+
+In 2020, a maximum of about 71\% of songs debuted at their peak, compared to much smaller percentages beforehand, and similar but decreasing percentages after. 
+
+::: {#cr-percentage .cr-sticky}
+::: {.chart-wrap}
+![](../../charts/percentage_debut_at_peak.svg)
+[Diagram of the percentage songs per year that debut at their peak ranking.]{.caption}
+:::
+:::
+:::
+:::
+
+::: {.prose}
+This is important to keep in mind as we turn to the distribution of rise and decay rates over time. All of these songs with 0 rise rates skew the distributions further right as the years move on, suggesting that a full analysis of song virality would require more data than just the Billboard Hot 100 Rankings. That being said, the decay rate lower fences and first quartiles are lower especially after 2022. These faster decay rates would mean that more songs are dropping off the charts more quickly, which aligns with the increase of songs on the Hot 100 overall, which we saw above. 
+:::
 
 ::: {.chart-wrap}
 <iframe src="../../charts/rise_decay_per_year.html" width=1000 height=800 style="border:none"></iframe>
 :::
 
-![](../../charts/waffle.svg)
+```{=html}
+<section id="conclusion">
+  <div class="conclusion-inner">
+
+    <h2>What does the decade tell us?</h2>
+
+    <div class="insight-grid">
+      <div class="insight-card">
+        <div class="insight-stat">↓27.9%</div>
+        <div class="insight-label">Drop in average weeks on chart for all songs,<br>2016 vs 2025</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-stat">22 songs</div>
+        <div class="insight-label">Fastest turnover at #1<br>2020</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-stat">x2</div>
+        <div class="insight-label">Increase in median weeks at #1,<br>2016 to 2025</div>
+      </div>
+    </div>
+
+    <p style="color:#1a1a1a; font-size:0.9rem; line-height:1.6; max-width:640px; margin-bottom:2rem;">
+      In general more songs come and go quickly, as seen with the decrease in average weeks on the chart, while a smaller number of hits dominate the top for longer, as seen with the increase in median weeks at #1.
+    </p>
+
+  </div>
+</section>
+```
