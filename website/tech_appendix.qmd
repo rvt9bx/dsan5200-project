@@ -11,7 +11,9 @@ title: "Technical Appendix"
 
 This project analyzes Billboard Hot 100 chart data from January 2016 through December 2025. The pipeline consists of three stages: scraping raw chart data, cleaning and normalizing artist names, and then wrangling the data and computing metrics and statistics for visualization.
 
-All code is written in Python. Visualizations are produced using Matplotlib, Seaborn, Plotly, and Altair and embedded in a Quarto website using the Closeread extension for scrollytelling.
+All code is written in Python. Visualizations are produced using Matplotlib, Seaborn, Plotly, and Altair and embedded in a Quarto website using the Closeread extension for scrollytelling. 
+
+Link to GitHub Repo: [https://github.com/rvt9bx/dsan5200-project](https://github.com/rvt9bx/dsan5200-project).
 
 ## Data Collection
 

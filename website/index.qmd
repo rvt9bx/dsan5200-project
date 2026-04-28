@@ -23,7 +23,11 @@ suppress-bibliography: true
   <p class="byline"><a href="https://github.com/rvt9bx" target="_blank">Eleanor Byrd</a>  &nbsp;·&nbsp; Spring 2026</p>
 </div>
 ```
-Add some sort of image or icon music related 
+
+::: {.chart-wrap}
+![](../../img/billboard.jpg)
+[Source: NPR]{.caption}
+:::
 
 ::: {.prose}
 Virality is defined as the concept of being quickly and widely spread or popularized, especially by means of social media ^[@mw_viral]. With TikTok entering the scene around 2018 as a short-form video platform and gaining major widespread popularity, the music industry experienced a massive shift ^[@stereofox_tiktok]. Tiny snippets of songs with catchy lyrics or fun beats, can be shared in a single video and reach millions of fans. This in turn spikes listening and streaming of the song. It has truly changed music marketing, discovery, and enjoyment. 
@@ -50,15 +54,15 @@ The artists are unsurprising, with some of the most popular singers of the past 
 :::
 
 ::: {.prose}
-If a song remains popular, it can chart for many weeks, moving up and down the rankings. It can even drop off the chart and reappear if there is another spike in popularity. Below we have a vizualization of the longest charting songs over the past decade. These songs are examples of truly enduring hits that might not be the highest ranking song for all of its weeks on the chart, but they have consistent enough streams and sales in order to keep them in the top 100. 
+If a song remains popular, it can chart for many weeks, moving up and down the rankings. It can even drop off the chart and reappear if there is another spike in popularity. Below we have a vizualization of the longest charting songs over the past decade. 
 :::
 
 ::: {.cr-wrapper}
 ::: {.cr-section}
 
-Now, here are the longest charting songs during this time period. @cr-song-weeks-plot 
+These songs are examples of truly enduring hits that might not be the highest ranking song for every single week on the chart, but they have consistent enough streams and sales that keeps them in the Hot 100. @cr-song-weeks-plot 
 
-Teddy Swims's _Lose Control_ charted for over two years, with only one week where it did not appear on the Billboard Hot 100. @cr-lose-control 
+Teddy Swims's _Lose Control_ charted for over two years, with only one week where it did not appear on the Billboard Hot 100. More descriptive statistics can be seen in this infographic. @cr-lose-control 
 
 ::: {#cr-song-weeks-plot .cr-sticky}
 ::: {.chart-wrap}
@@ -69,7 +73,7 @@ Teddy Swims's _Lose Control_ charted for over two years, with only one week wher
 
 ::: {#cr-lose-control .cr-sticky}
 ::: {.chart-wrap}
-![](../../charts/teddy_swims_infographic.png)
+![](../../img/teddy_swims_infographic.png)
 :::
 :::
 
@@ -195,7 +199,7 @@ Of course, the number of weeks a song charts can give us give us an initial view
 
 ## How do we capture a flash or a burn?
 
-In order to quantify a song's climb up the chart and its fall down it, I calculate rise and decay rates. Both of these metrics are calculated as the average of all weekly differences, where rise rate is positive and calcluated based on the weeks and ranks from a song's debut to its peak, and the decay rate is negative and is calculated from a song's peak to its last day on the chart. Put simply, they are slopes: the rise rate is the average number of ranks a song increases per week up until its peak, and the decay rate is the average number of ranks a song decreases per week after peaking. A rise rate of 0 means that a song debuts at its peak, and a decay rate of 0 means it ends at its peak. 
+In order to quantify a song's climb up the chart and its fall down it, we calculate rise and decay rates. Both of these metrics are constructed as the change in ranks per week, where rise rate is positive and calcluated based on the data from a song's debut to its peak, and the decay rate is negative and is calculated from a song's peak to its last day on the chart. Put simply, they are slopes: the rise rate is the average number of ranks a song increases per week up until its peak, and the decay rate is the average number of ranks a song decreases per week after peaking. A rise rate of 0 means that a song debuts at its peak, and a decay rate of 0 means it ends at its peak. 
 
 While these metrics provide a general assessment, they do have limitations. They only incorporate the initial ranking of a song, the peak ranking, the end ranking, and the number of weeks in between those points. Thus the rise and decay rates do not take into account the variability in a song's ranking before or after it reaches its peak. More influential for the decay rate calculations, songs that drop of the chart completely and then re-enter have extended post-peak lengths, and the final rank it ends on could be much higher than a lower rank it previously disappeared from. Thus the decay rate can appear very slow for a song that could have several flashes of popularity on the charts. 
 :::
@@ -207,6 +211,8 @@ While these metrics provide a general assessment, they do have limitations. They
 
 ::: {.prose}
 Using the chart above, we can do an initial categorization of flash vs burn songs. Songs in the bottom right quadrant are true "flash" songs that rise quickly up the rankings and then drop just as fast. For example, Taylor Swift's _Mr. Perfectly Fine (Taylor's Version)_ started at #90, peaked at #30 the next week, and then dropped back to #90 the next week and didn't reappear on the chart. Songs on the top right are viral hits, they climb quickly up the charts like the flashes, but they stick around and stay popular, with low decay rates. The bottom left corner is the opposite, they either debut at their peak if they lie on the vertical axis, or they have slow rises up the charts. Yet, their extreme decay rates mean that their popularity isn't sustainable and they rapidly drop in the rankings before falling off the chart. Most songs are clustered in the top left corner, with both slow rise rates and slow decay rates. 
+
+In the section below, we examine four different artists and their trajectories on the charts. Each one has had a different experience and emulates a different archetype. 
 :::
 
 
@@ -214,23 +220,38 @@ Using the chart above, we can do an initial categorization of flash vs burn song
 
 ## Taylor Swift 
 
-
 ```{=html}
 <div id="pathway-a" class="pathway">
 ```
 
 ::: {.pathway-header}
-### Taylor Swift 
+<div class="pathway-header-inner">
+  <div class="pathway-header-text">
+
+### Taylor Swift
 [Flash]{.artist-label}
+
+  </div>
+  <div class="pathway-header-code">
+
+![](../../img/ts.png)
+[Scan in the Spotify App Search page.]{.caption}
+
+  </div>
+</div>
 :::
 
+::: {.prose}
 A major name in current pop music, Taylor Swift is the only artist to have won Album of the Year at the Grammys four times, and her 2023-2024 Eras Tour was the first concert tour to make $1 billion in revenue ^[@swift_records]. Her songs have been charting on the Billboard Hot 100 since her debut album in 2006. In the most recent decade, however, she has released 11 albums. The longest charting singles from those albums can be seen below. 
+:::
 
 ::: {.chart-wrap}
 ![](../../charts/timeline_taylor_swift.svg)
 :::
 
+::: {.prose}
 Besides all of that, her single _ME!_ with Brendon Urie has the highest rise rate for any song in the Hot 100 between 2016 and 2025. In just one week, it rose from its debut rank at \#100 to \#2, for an increase of 98 ranks per week. Another viral rise was _Look What You Made Me Do_, from 2017's Reputation album. This was a surprise drop with no lead up marketing, and the song rose from a \#77 debut to \#1 in a single week. Previously mentioned was her song _Mr. Perfectly Fine (Taylor's Version)_, which also has a very high rise rate of 60 ranks per week. In the plot below, the top 20 of Taylor Swift's songs with the highest rise rates are shown. Each song's bar is colored by rank for the weeks since its first appearance on the chart in this time frame, where darker corresponds to a higher rank. Feel free to hover over the chart or zoom in to get a closer look. 
+:::
 
 ::: {.chart-wrap}
 <div class="plot-container">
@@ -238,7 +259,9 @@ Besides all of that, her single _ME!_ with Brendon Urie has the highest rise rat
 </div>
 :::
 
+::: {.prose}
 This next plot shows the distribution of the rise and decay rates for all of Taylor Swift's songs on the Hot 100 from 2016 to 2025. In the distribution plot, the rise rate has a large spike at 0, meaning a lot of her songs debut at their peak rank. There is a long tail to the right though, which indicates some outlier songs that have extremely fast jumps up the chart. The decay rate distribution of Taylor Swift's songs is less volatile, with a peak at around -10 and a tail out to about -87. Compared to other artists, Taylor Swift's songs have pretty fast decay rates, meaning that their popularity isn't sustained for long periods of time.
+:::
 
 ::: {.chart-wrap}
 <div class="plot-container">
@@ -262,8 +285,20 @@ Taylor Swift's songs often debut at their peak or fly up the charts in a single 
 ```
 
 ::: {.pathway-header}
+<div class="pathway-header-inner">
+  <div class="pathway-header-text">
+
 ### Bad Bunny 
 [Climb]{.artist-label}
+
+  </div>
+  <div class="pathway-header-code">
+
+![](../../img/bb.png)
+[Scan in the Spotify App Search page.]{.caption}
+
+  </div>
+</div>
 :::
 
 ::: {.prose}
@@ -310,8 +345,20 @@ While not extreme, Bad Bunny's songs have higher rise rates on average. Yet they
 ```
 
 ::: {.pathway-header}
+<div class="pathway-header-inner">
+  <div class="pathway-header-text">
+
 ### Shawn Mendes
 [Fade]{.artist-label}
+
+  </div>
+  <div class="pathway-header-code">
+
+![](../../img/sm.png)
+[Scan in the Spotify App Search page.]{.caption}
+
+  </div>
+</div>
 :::
 
 ::: {.prose}
@@ -358,8 +405,20 @@ Unlike some of the other artists, Shawn Mendes has a slow decay rate, meaning th
 ```
 
 ::: {.pathway-header}
+<div class="pathway-header-inner">
+  <div class="pathway-header-text">
+
 ### Luke Combs 
 [Burn]{.artist-label}
+
+  </div>
+  <div class="pathway-header-code">
+
+![](../../img/lc.png)
+[Scan in the Spotify App Search page.]{.caption}
+
+  </div>
+</div>
 :::
 
 ::: {.prose}
@@ -461,7 +520,7 @@ This is important to keep in mind as we turn to the distribution of rise and dec
     <h2>Virality vs Endurability</h2>
 
     <p style="color:#1a1a1a; font-size:0.9rem; line-height:1.6; max-width: 800px; margin-bottom:2rem;">
-      While the Billboard Hot 100 Chart can give insight into a song or artist's success and popularity, many other things should be considered when measuring virality. Social media shares and anticipation for a song before it is released can make a song go viral before it even reaches the charts, where it can debut at its peak and flatten its rise rate metric to zero. Both rates span across chart re-entries and flucuations, not fully capturing the granular variability of song popularity up and down the charts. That being said, it is interesting to explore specific songs and artists, and I would be interested in furthering this analysis across with categories like song genre, artist gender, or song specifc features, as well as incorporate data from social media. 
+      While the Billboard Hot 100 Chart can give insight into a song or artist's success and popularity, many other things should be considered when measuring virality. Social media shares and anticipation for a song before it is released can make a song go viral before it even reaches the charts, where it can debut at its peak and flatten its rise rate metric to zero. Both rates span across chart re-entries and flucuations, not fully capturing the granular variability of song popularity up and down the charts. That being said, it is interesting to explore specific songs and artists, and it would be interesting to this analysis across with categories like song genre, artist gender, geographic origins, or song specifc features, as well as incorporate data from social media. 
     </p>
 
     <h2>What does the decade tell us?</h2>
