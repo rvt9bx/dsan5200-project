@@ -25,7 +25,7 @@ suppress-bibliography: true
 ```
 
 ::: {.chart-wrap}
-![](../../img/billboard.jpg)
+![](img/billboard.jpg)
 [Source: NPR]{.caption}
 :::
 
@@ -46,7 +46,7 @@ The artists are unsurprising, with some of the most popular singers of the past 
 
 ::: {#cr-songs-per-artist-plot .cr-sticky}
 ::: {.chart-wrap}
-![](../../charts/num_songs_per_artist.svg)
+![](charts/num_songs_per_artist.svg)
 [Diagram of number of unique songs on the Billboard Hot 100 chart for the 20 most charting artists. The number of songs includes duets or features that the artist appeared on.]{.caption}
 :::
 :::
@@ -66,14 +66,14 @@ Teddy Swims's _Lose Control_ charted for over two years, with only one week wher
 
 ::: {#cr-song-weeks-plot .cr-sticky}
 ::: {.chart-wrap}
-![](../../charts/num_weeks_per_song.svg)
+![](charts/num_weeks_per_song.svg)
 [Diagram of number of weeks on the Billboard Hot 100 chart for the 20 most charting songs. The number of weeks represents the total number of weeks on the chart from 2016-2025, not necessarity consecutive weeks.]{.caption}
 :::
 :::
 
 ::: {#cr-lose-control .cr-sticky}
 ::: {.chart-wrap}
-![](../../img/teddy_swims_infographic.png)
+![](img/teddy_swims_infographic.png)
 :::
 :::
 
@@ -205,7 +205,7 @@ While these metrics provide a general assessment, they do have limitations. They
 :::
 
 ::: {.chart-wrap}
-<iframe src="../../charts/rise_vs_decay.html" width=1000 height=600 style="border:none"></iframe>
+<iframe src="charts/rise_vs_decay.html" width=1000 height=600 style="border:none"></iframe>
 [Diagram of song rise rate vs decay rate. Songs that only appear on the Billboard Hot 100 for a single week are not included.]{.caption}
 :::
 
@@ -234,7 +234,7 @@ In the section below, we examine four different artists and their trajectories o
   </div>
   <div class="pathway-header-code">
 
-![](../../img/ts.png)
+![](img/ts.png)
 [Scan in the Spotify App Search page.]{.caption}
 
   </div>
@@ -246,7 +246,7 @@ A major name in current pop music, Taylor Swift is the only artist to have won A
 :::
 
 ::: {.chart-wrap}
-![](../../charts/timeline_taylor_swift.svg)
+![](charts/timeline_taylor_swift.svg)
 :::
 
 ::: {.prose}
@@ -255,7 +255,7 @@ Besides all of that, her single _ME!_ with Brendon Urie has the highest rise rat
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="../../charts/heatmap_taylor_swift.html?v=1"></iframe>
+<iframe src="charts/heatmap_taylor_swift.html?v=1"></iframe>
 </div>
 :::
 
@@ -265,7 +265,7 @@ This next plot shows the distribution of the rise and decay rates for all of Tay
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="../../charts/violin_taylor_swift.html?v=1"></iframe>
+<iframe src="charts/violin_taylor_swift.html?v=1"></iframe>
 </div>
 :::
 
@@ -294,7 +294,7 @@ Taylor Swift's songs often debut at their peak or fly up the charts in a single 
   </div>
   <div class="pathway-header-code">
 
-![](../../img/bb.png)
+![](img/bb.png)
 [Scan in the Spotify App Search page.]{.caption}
 
   </div>
@@ -306,7 +306,7 @@ You may remember him from the 2026 Super Bowl Halftime Show, Bad Bunny is a Puer
 :::
 
 ::: {.chart-wrap}
-![](../../charts/timeline_bad_bunny.svg)
+![](charts/timeline_bad_bunny.svg)
 :::
 
 ::: {.prose}
@@ -315,7 +315,7 @@ While Bad Bunny doesn't have as extreme rise rates like Taylor Swift; _La Mudanz
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="../../charts/heatmap_bad_bunny.html?v=1"></iframe>
+<iframe src="charts/heatmap_bad_bunny.html?v=1"></iframe>
 </div>
 :::
 
@@ -325,7 +325,7 @@ Next we can see the distribution of Bad Bunny's rise and decay rates. For the ri
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="../../charts/violin_bad_bunny.html?v=1"></iframe>
+<iframe src="charts/violin_bad_bunny.html?v=1"></iframe>
 </div>
 :::
 
@@ -354,7 +354,7 @@ While not extreme, Bad Bunny's songs have higher rise rates on average. Yet they
   </div>
   <div class="pathway-header-code">
 
-![](../../img/sm.png)
+![](img/sm.png)
 [Scan in the Spotify App Search page.]{.caption}
 
   </div>
@@ -366,7 +366,7 @@ Shawn Mendes is a great example of sustained hits. With 4 albums releasing betwe
 :::
 
 ::: {.chart-wrap}
-![](../../charts/timeline_shawn_mendes.svg)
+![](charts/timeline_shawn_mendes.svg)
 :::
 
 ::: {.prose}
@@ -375,7 +375,7 @@ In the heatmap below that shows selected songs with the slowest decay rates, you
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="../../charts/heatmap_shawn_mendes.html?v=1"></iframe>
+<iframe src="charts/heatmap_shawn_mendes.html?v=1"></iframe>
 </div>
 :::
 
@@ -385,7 +385,7 @@ This final plot highlights the rise and decay distributions for all of Shawn Men
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="../../charts/violin_shawn_mendes.html?v=1"></iframe>
+<iframe src="charts/violin_shawn_mendes.html?v=1"></iframe>
 </div>
 :::
 
@@ -414,7 +414,7 @@ Unlike some of the other artists, Shawn Mendes has a slow decay rate, meaning th
   </div>
   <div class="pathway-header-code">
 
-![](../../img/lc.png)
+![](img/lc.png)
 [Scan in the Spotify App Search page.]{.caption}
 
   </div>
@@ -426,7 +426,7 @@ A decorated country singer, Luke Combs has not yet achieved a Billboard Hot 100 
 :::
 
 ::: {.chart-wrap}
-![](../../charts/timeline_luke_combs.svg)
+![](charts/timeline_luke_combs.svg)
 :::
 
 ::: {.prose}
@@ -435,7 +435,7 @@ Luke Combs is an interesting case: he is not at the tippy top of either of these
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="../../charts/heatmap_luke_combs.html?v=1"></iframe>
+<iframe src="charts/heatmap_luke_combs.html?v=1"></iframe>
 </div>
 :::
 
@@ -445,7 +445,7 @@ Like mentioned before, Luke Combs has more of a balance between rise and decay r
 
 ::: {.chart-wrap}
 <div class="plot-container">
-<iframe src="../../charts/violin_luke_combs.html?v=1"></iframe>
+<iframe src="charts/violin_luke_combs.html?v=1"></iframe>
 </div>
 :::
 
@@ -478,7 +478,7 @@ That being said, there is still more turnover in music popularity after the pand
 
 ::: {#cr-waffle .cr-sticky}
 ::: {.chart-wrap}
-![](../../charts/waffle.svg)
+![](charts/waffle.svg)
 [Diagram of number of unique songs on the Billboard Hot 100 chart per year, where each small square represents a song.]{.caption}
 :::
 :::
@@ -498,7 +498,7 @@ In 2020, a maximum of about 71\% of songs debuted at their peak, compared to muc
 
 ::: {#cr-percentage .cr-sticky}
 ::: {.chart-wrap}
-![](../../charts/percentage_debut_at_peak.svg)
+![](charts/percentage_debut_at_peak.svg)
 [Diagram of the percentage songs per year that debut at their peak ranking.]{.caption}
 :::
 :::
@@ -510,7 +510,7 @@ This is important to keep in mind as we turn to the distribution of rise and dec
 :::
 
 ::: {.chart-wrap}
-<iframe src="../../charts/rise_decay_per_year.html" width=1000 height=800 style="border:none"></iframe>
+<iframe src="charts/rise_decay_per_year.html" width=1000 height=800 style="border:none"></iframe>
 :::
 
 ```{=html}
